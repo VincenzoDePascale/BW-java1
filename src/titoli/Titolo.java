@@ -27,29 +27,17 @@ public abstract class Titolo {
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(nullable = false, unique = true)
-	private Long numero;
-	
 	@Column(nullable = false)
 	private LocalDate data_emissione;
 		
 	public Titolo () {};
 	
-	public Titolo(Long numero, LocalDate data_emissione) {
-		super();
-		this.numero = numero;
+	public Titolo(LocalDate data_emissione) {
 		this.data_emissione = data_emissione;
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public Long getNumero() {
-		return numero;
-	}
-	public void setNumero(Long numero) {
-		this.numero = numero;
 	}
 	public LocalDate getData_emissione() {
 		return data_emissione;
@@ -60,7 +48,7 @@ public abstract class Titolo {
 
 	@Override
 	public String toString() {
-		return "Titolo [id=" + id + ", numero=" + numero + ", data_emissione=" + data_emissione + "]";
+		return "Titolo [id=" + id + ", data_emissione=" + data_emissione + "]";
 	}
 		
 
