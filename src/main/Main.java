@@ -9,7 +9,7 @@ import JPA_util.JpaUtil;
 import java.util.Scanner;
 public class Main {
 
-	static EntityManager em = JpaUtil.getEmf().createEntityManager();
+	//static EntityManager em = JpaUtil.getEmf().createEntityManager();
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {

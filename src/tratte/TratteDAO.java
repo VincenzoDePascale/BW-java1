@@ -1,51 +1,60 @@
 package tratte;
 
-//import JPA_util.JpaUtil;
+import JPA_util.JpaUtil;
+import java.util.List;
 
-//
-//import java.time.LocalTime;
-//import java.util.List;
-//
-//import javax.persistence.EntityManager;
-//import javax.persistence.EntityManagerFactory;
-//import javax.persistence.Persistence;
-//import javax.persistence.Query;
-//
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 public class TratteDAO {
-//
-//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
-//	
-//	public static void main(String[] args) {
-//		
-//		Tratta t = new Tratta();
-//		LocalTime L1 = LocalTime.parse("10:00");
-//		t.setCapolinea("Roma");
-//		t.setDurata_media(L1);
-//		t.setNome_tratta("Na-Ro");
-//		t.setPartenza("Napoli");
-//		
-//		//addTratta(t);
-//		List<Tratta> listaDelleTratte = findAllTratte();
-//		System.out.println(listaDelleTratte);
-//
-//	}
-//	
-//	public static void addTratta(Tratta t) {
-//		try {
-//		em.getTransaction().begin();
-//		em.persist(t);
-//		em.getTransaction().commit();
-//		System.out.println("Aggiunto");
-//		} catch (Exception e){
-//			em.getTransaction().rollback();
-//		} finally {
-//			em.close();
-//		}
-//	}
-//	
-//	public static List<Tratta> findAllTratte() {
-//		Query q = em.createNamedQuery("tratte.findAll");
-//		return q.getResultList();
-//	}
+	
+	static EntityManager em = JpaUtil.getEmf().createEntityManager();
+	
+	public static void main(String[] args) {
+		
+		try {
+		Tratta t = new Tratta();
+		t.setCapolinea("Roma");
+		t.setNome_tratta("Na-Ro");
+		t.setPartenza("Napoli");
+		
+		//addTratta(t);
+		//List<Tratta> listaDelleTratte = findAllTratte();
+		//System.out.println(listaDelleTratte);
+		Tratta letta = findTrattaByID(4l);
+		System.out.println(letta);
+		
+		} catch (Exception e){
+			em.getTransaction().rollback();
+		} finally {
+			em.close();
+		}
+
+	}
+	
+	public static void addTratta(Tratta t) {
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
+		System.out.println("Tratta aggiunto");
+	}
+	
+	public static List<Tratta> findAllTratte() {
+		Query q = em.createNamedQuery("tratte.findAll");
+		return q.getResultList();
+	}
+	
+	public static void removeTratta(Tratta t) {
+		em.getTransaction().begin();
+		em.remove(t);
+		em.getTransaction().commit();
+		System.out.println("Tratta eliminata");
+	}
+	
+	public static Tratta findTrattaByID(Long id) {
+		Query q = em.createNamedQuery("findById");
+		q.setParameter("id", id);
+		return (Tratta) q.getSingleResult();
+	}
 
 }
