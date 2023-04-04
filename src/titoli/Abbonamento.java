@@ -24,13 +24,9 @@ public class Abbonamento extends Titolo {
 	
 	public Abbonamento() {}
 
-	
-
-	public Abbonamento( Long numero, LocalDate data_emissione, LocalDate data_inizio, LocalDate data_scadenza,
-			TipoAbbonamento durata) {
-		super(numero, data_emissione);
+	public Abbonamento(LocalDate data_emissione, LocalDate data_inizio, TipoAbbonamento durata) {
+		super(data_emissione);
 		this.data_inizio = data_inizio;
-		this.data_scadenza = data_scadenza;
 		this.durata = durata;
 	}
 
@@ -42,6 +38,12 @@ public class Abbonamento extends Titolo {
 
 	public void setData_inizio(LocalDate data_inizio) {
 		this.data_inizio = data_inizio;
+		if(this.durata == TipoAbbonamento.SETTIMANALE) {
+			this.data_scadenza = data_inizio.plusDays(7);
+		} else if (this.durata == TipoAbbonamento.MENSILE) {
+			this.data_scadenza = data_inizio.plusDays(30);
+		}
+		
 	}
 
 	public LocalDate getData_scadenza() {

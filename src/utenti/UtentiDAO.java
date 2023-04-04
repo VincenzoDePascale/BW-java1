@@ -14,7 +14,7 @@ public class UtentiDAO {
 		
 		List<Utente> listaUtenti = findAllUtenti();
 		
-		// TODO Auto-generated method stub
+		
 
 	}
 	

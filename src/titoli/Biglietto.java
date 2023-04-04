@@ -14,26 +14,23 @@ public class Biglietto extends Titolo{
 	private Boolean vidimato;
 	
 	@Column
-	private Boolean valido;
+	private Boolean valido = true;
 	
 	public Biglietto () {}
 	
-	
-
-
-	public Biglietto(Long numero, LocalDate data_emissione, Boolean vidimato, Boolean valido) {
-		super(numero, data_emissione);
-		this.vidimato = vidimato;
-		this.valido = valido;
+	public Biglietto(LocalDate data_emissione) {
+		super(data_emissione);
 	}
 
 
 	public Boolean getVidimato() {
 		return vidimato;
+		
 	}
 
 	public void setVidimato(Boolean vidimato) {
 		this.vidimato = vidimato;
+		this.valido = !vidimato;
 	}
 
 	public Boolean getValido() {
@@ -42,6 +39,13 @@ public class Biglietto extends Titolo{
 
 	public void setValido(Boolean valido) {
 		this.valido = valido;
+		this.vidimato = !valido;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Biglietto [vidimato=" + vidimato + ", valido=" + valido + "]";
 	}
 	
 	
