@@ -1,11 +1,25 @@
-package main;
+package titoli;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "titoli")
 public class Abbonamento extends Titolo {
 	
+	@Column
 	private LocalDate data_inizio;
+	
+	@Column
 	private LocalDate data_scadenza;
+	
+	@Enumerated(EnumType.STRING)
+	@Column
 	private TipoAbbonamento durata;
 	
 	public Abbonamento() {}

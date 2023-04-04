@@ -1,10 +1,33 @@
-package main;
+package tratte;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tratte")
+@NamedQuery(name="tratte.findAll", query = "SELECT t FROM Tratta t")
 public class Tratta {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	@Column(nullable = false)
 	private String nome_tratta;
+	
+	@Column
 	private int durata_media;
+	
+	@Column(nullable = false)
 	private String partenza;
+	
+	@Column(nullable = false)
 	private String capolinea;
 	
 	public Tratta () {}

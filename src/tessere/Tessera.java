@@ -1,11 +1,24 @@
-package main;
+package tessere;
 
 import java.time.LocalDate;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tessere")
+@NamedQuery(name="tessere.findAll", query = "SELECT t FROM Tessera t")
 public class Tessera {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	/*@OneToOne(mappedBy= "numero_tessera")*/
+	@Column
 	private Long numero_tessera;
+	
+	@Column(nullable = false)
 	private LocalDate data_scadenza;
 	
 	

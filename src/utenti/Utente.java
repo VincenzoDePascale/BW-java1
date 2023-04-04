@@ -1,10 +1,28 @@
-package main;
+package utenti;
 
+import javax.persistence.*;
+
+import tessere.Tessera;
+
+@Entity
+@Table(name = "utenti")
+@NamedQuery(name="utenti.findAll", query = "SELECT e FROM Utente e")
 public class Utente {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	/*@OneToOne
+	@JoinColumn(name= "numero_tessera")*/
+	@Column
 	private Tessera numero_tessera;
+	
+	@Column(nullable = false)
 	private String nome;
+	
+	@Column(nullable = false)
 	private String cognome;
 	
 	public Utente () {}

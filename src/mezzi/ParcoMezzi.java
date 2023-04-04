@@ -1,11 +1,41 @@
-package main;
+package mezzi;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+import tratte.Tratta;
+
+@Entity
+@Table(name = "parco_mezzi")
+@NamedQuery(name="parco_mezzi.findAll", query = "SELECT p FROM ParcoMezzi p")
 public class ParcoMezzi {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
 	private TipoMezzo tipo_mezzo;
+	
+	@Column(nullable = false)
 	private Boolean in_servizio;
+	
+	@Column(nullable = false)
 	private Boolean in_manutenzione;
+	
+	@Column(nullable = false)
 	private int capienza;
+	
+	@Column(nullable = false)
 	private Tratta tratta;
 	
 	public ParcoMezzi () {}

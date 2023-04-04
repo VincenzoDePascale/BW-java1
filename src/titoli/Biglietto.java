@@ -1,10 +1,19 @@
-package main;
+package titoli;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "titoli")
 public class Biglietto extends Titolo{
 	
+	@Column
 	private Boolean vidimato;
+	
+	@Column
 	private Boolean valido;
 	
 	public Biglietto () {}
