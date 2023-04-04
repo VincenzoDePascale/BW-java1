@@ -26,9 +26,9 @@ public class Abbonamento extends Titolo {
 
 	
 
-	public Abbonamento(Long id, Long numero, LocalDate data_emissione, LocalDate data_inizio, LocalDate data_scadenza,
+	public Abbonamento( Long numero, LocalDate data_emissione, LocalDate data_inizio, LocalDate data_scadenza,
 			TipoAbbonamento durata) {
-		super(id, numero, data_emissione);
+		super(numero, data_emissione);
 		this.data_inizio = data_inizio;
 		this.data_scadenza = data_scadenza;
 		this.durata = durata;

@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name= "tipologia_biglietto", discriminatorType = DiscriminatorType.STRING)
 @NamedQuery(name="titoli.findAll", query = "SELECT t FROM Titolo t")
-public class Titolo {
+public abstract class Titolo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +35,8 @@ public class Titolo {
 		
 	public Titolo () {};
 	
-	public Titolo(Long id, Long numero, LocalDate data_emissione) {
+	public Titolo(Long numero, LocalDate data_emissione) {
 		super();
-		this.id = id;
 		this.numero = numero;
 		this.data_emissione = data_emissione;
 	}
@@ -45,9 +44,7 @@ public class Titolo {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	public Long getNumero() {
 		return numero;
 	}

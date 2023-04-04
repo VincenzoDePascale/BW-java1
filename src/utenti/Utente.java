@@ -27,9 +27,8 @@ public class Utente {
 	
 	public Utente () {}
 
-	public Utente(Long id, Tessera numero_tessera, String nome, String cognome) {
+	public Utente(Tessera numero_tessera, String nome, String cognome) {
 		super();
-		this.id = id;
 		this.numero_tessera = numero_tessera;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -39,9 +38,6 @@ public class Utente {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Tessera getNumero_tessera() {
 		return numero_tessera;

@@ -40,10 +40,9 @@ public class ParcoMezzi {
 	
 	public ParcoMezzi () {}
 
-	public ParcoMezzi(Long id, TipoMezzo tipo_mezzo, Boolean in_servizio, Boolean in_manutenzione, int capienza,
+	public ParcoMezzi(TipoMezzo tipo_mezzo, Boolean in_servizio, Boolean in_manutenzione, int capienza,
 			Tratta tratta) {
 		super();
-		this.id = id;
 		this.tipo_mezzo = tipo_mezzo;
 		this.in_servizio = in_servizio;
 		this.in_manutenzione = in_manutenzione;
@@ -55,9 +54,6 @@ public class ParcoMezzi {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public TipoMezzo getTipo_mezzo() {
 		return tipo_mezzo;

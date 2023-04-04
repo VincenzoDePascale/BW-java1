@@ -25,9 +25,8 @@ public class Tessera {
 	public Tessera() {}
 
 
-	public Tessera(Long id, Long numero_tessera, LocalDate data_scadenza) {
+	public Tessera(Long numero_tessera, LocalDate data_scadenza) {
 		super();
-		this.id = id;
 		this.numero_tessera = numero_tessera;
 		this.data_scadenza = data_scadenza;
 	}
@@ -38,9 +37,6 @@ public class Tessera {
 	}
 
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 
 	public Long getNumero_tessera() {

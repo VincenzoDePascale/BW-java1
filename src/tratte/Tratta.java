@@ -32,9 +32,8 @@ public class Tratta {
 	
 	public Tratta () {}
 
-	public Tratta(Long id, String nome_tratta, int durata_media, String partenza, String capolinea) {
+	public Tratta(String nome_tratta, int durata_media, String partenza, String capolinea) {
 		super();
-		this.id = id;
 		this.nome_tratta = nome_tratta;
 		this.durata_media = durata_media;
 		this.partenza = partenza;
@@ -45,9 +44,6 @@ public class Tratta {
 		return id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getNome_tratta() {
 		return nome_tratta;

@@ -21,8 +21,8 @@ public class Biglietto extends Titolo{
 	
 
 
-	public Biglietto(Long id, Long numero, LocalDate data_emissione, Boolean vidimato, Boolean valido) {
-		super(id, numero, data_emissione);
+	public Biglietto(Long numero, LocalDate data_emissione, Boolean vidimato, Boolean valido) {
+		super(numero, data_emissione);
 		this.vidimato = vidimato;
 		this.valido = valido;
 	}
