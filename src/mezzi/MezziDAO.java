@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import main.Main;
-
 public class MezziDAO {
 	
 	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BW-java1");
