@@ -1,5 +1,7 @@
 package tratte;
 
+import java.time.LocalTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +24,7 @@ public class Tratta {
 	private String nome_tratta;
 	
 	@Column
-	private int durata_media;
+	private LocalTime durata_media;
 	
 	@Column(nullable = false)
 	private String partenza;
@@ -32,7 +34,7 @@ public class Tratta {
 	
 	public Tratta () {}
 
-	public Tratta(String nome_tratta, int durata_media, String partenza, String capolinea) {
+	public Tratta(String nome_tratta, LocalTime durata_media, String partenza, String capolinea) {
 		super();
 		this.nome_tratta = nome_tratta;
 		this.durata_media = durata_media;
@@ -53,11 +55,11 @@ public class Tratta {
 		this.nome_tratta = nome_tratta;
 	}
 
-	public int getDurata_media() {
+	public LocalTime getDurata_media() {
 		return durata_media;
 	}
 
-	public void setDurata_media(int durata_media) {
+	public void setDurata_media(LocalTime durata_media) {
 		this.durata_media = durata_media;
 	}
 
