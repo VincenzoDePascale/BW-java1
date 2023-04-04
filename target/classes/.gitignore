@@ -1,7 +1,8 @@
 /META-INF/
-/main/
-/mezzi/
+<<<<<<< HEAD
 /titoli/
+=======
+/main/
+>>>>>>> branch 'main' of https://github.com/VincenzoDePascale/BW-java1.git
+/mezzi/
 /utenti/
-/registri/
-/tratte/

@@ -50,10 +50,6 @@ public class Abbonamento extends Titolo {
 		return data_scadenza;
 	}
 
-	public void setData_scadenza(LocalDate data_scadenza) {
-		this.data_scadenza = data_scadenza;
-	}
-
 	public TipoAbbonamento getDurata() {
 		return durata;
 	}
