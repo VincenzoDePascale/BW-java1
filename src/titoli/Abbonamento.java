@@ -31,20 +31,26 @@ public class Abbonamento extends Titolo {
 
 
 
+	
+
 	public LocalDate getData_inizio() {
 		return data_inizio;
 	}
 
-	public void setData_inizio(LocalDate data_inizio) {
+	public void setData_inizio(LocalDate data_inizio, TipoAbbonamento durata) {
 		this.data_inizio = data_inizio;
-		if(this.durata == TipoAbbonamento.SETTIMANALE) {
+		if(durata == TipoAbbonamento.SETTIMANALE) {
 			this.data_scadenza = data_inizio.plusDays(7);
-		} else if (this.durata == TipoAbbonamento.MENSILE) {
+		} else if (durata == TipoAbbonamento.MENSILE) {
 			this.data_scadenza = data_inizio.plusDays(30);
 		}
 		
 	}
 
+	public void setData_scadenza(LocalDate data_scadenza) {
+		this.data_scadenza = data_scadenza;
+	}
+	
 	public LocalDate getData_scadenza() {
 		return data_scadenza;
 	}
@@ -59,9 +65,10 @@ public class Abbonamento extends Titolo {
 
 	@Override
 	public String toString() {
-		return "Abbonamento [data_inizio=" + data_inizio + ", data_scadenza=" + data_scadenza + ", durata=" + durata
-				+ "]";
-	};
+		return "Abbonamento [getData_emissione()="+ getData_emissione() + "getData_inizio()=" + getData_inizio() + ", getData_scadenza()=" + getData_scadenza()
+				+ ", getDurata()=" + getDurata() + "]";
+	}
+
 	
 	
 }

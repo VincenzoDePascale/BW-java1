@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Biglietto extends Titolo{
 	
 	@Column
-	private Boolean vidimato;
+	private Boolean vidimato = false;
 	
 	@Column
 	private Boolean valido = true;
@@ -44,8 +44,10 @@ public class Biglietto extends Titolo{
 
 	@Override
 	public String toString() {
-		return "Biglietto [vidimato=" + vidimato + ", valido=" + valido + "]";
+		return "Biglietto [getData_emissione()="+ getData_emissione() + "getVidimato()=" + getVidimato() + ", getValido()=" + getValido() + "]";
 	}
+
+	
 	
 	
 }
