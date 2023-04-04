@@ -1,13 +1,13 @@
 package titoli;
 
-import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.*;
 
 public class TitoliDAO {
 	
-	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("W3-weeklyProject-java");
+	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BW-java1");
 	static EntityManager em = emf.createEntityManager();
 
 	public static void main(String[] args) {
@@ -17,7 +17,14 @@ public class TitoliDAO {
 		try {
 			
 			Abbonamento A1 = new Abbonamento();
+			A1.setData_emissione(LocalDate.of(2023, 4, 4));
+			A1.setData_inizio(LocalDate.of(2023, 4, 4));
+			A1.setDurata(TipoAbbonamento.SETTIMANALE);
+			A1.toString();
 			
+			Biglietto B1 = new Biglietto();
+			B1.setData_emissione(LocalDate.of(2023, 4, 4));
+			B1.toString();
 			
 		}catch(Exception e){
 			e.printStackTrace();
