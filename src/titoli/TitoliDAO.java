@@ -17,8 +17,7 @@ public class TitoliDAO {
 		try {
 			
 			Abbonamento A1 = new Abbonamento();
-			A1.setDurata(TipoAbbonamento.SETTIMANALE);
-			A1.set
+			
 			
 		}catch(Exception e){
 			e.printStackTrace();
