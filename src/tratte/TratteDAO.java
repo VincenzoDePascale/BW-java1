@@ -1,4 +1,7 @@
 package tratte;
+
+//import JPA_util.JpaUtil;
+
 //
 //import java.time.LocalTime;
 //import java.util.List;
@@ -10,8 +13,7 @@ package tratte;
 //
 public class TratteDAO {
 //
-//	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BW-java1");
-//	static EntityManager em = emf.createEntityManager();
+//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
 //	
 //	public static void main(String[] args) {
 //		

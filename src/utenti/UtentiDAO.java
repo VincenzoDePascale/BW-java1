@@ -1,4 +1,7 @@
 package utenti;
+
+//import JPA_util.JpaUtil;
+
 //
 //import java.util.List;
 //
@@ -7,8 +10,7 @@ package utenti;
 
 public class UtentiDAO {
 //	
-//	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BW-java1");
-//	static EntityManager em = emf.createEntityManager();
+//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
 //
 //	public static void main(String[] args) {
 //		

@@ -1,4 +1,7 @@
 package tessere;
+
+//import JPA_util.JpaUtil;
+
 //
 //import java.util.List;
 //
@@ -9,8 +12,7 @@ package tessere;
 //
 public class TesseraDAO {
 //	
-//	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("W3-weeklyProject-java");
-//	static EntityManager em = emf.createEntityManager();
+//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
 //
 //	public static void main(String[] args) {
 //		

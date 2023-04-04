@@ -1,5 +1,7 @@
 package mezzi;
 
+//import JPA_util.JpaUtil;
+
 //import java.time.LocalDate;
 //
 //import javax.persistence.EntityManager;
@@ -9,8 +11,7 @@ package mezzi;
 //import main.Main;
 public class MezziDAO {
 //	
-//	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("BW-java1");
-//	static EntityManager em = emf.createEntityManager();
+//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
 //
 //	public static void main(String[] args) {
 //		
