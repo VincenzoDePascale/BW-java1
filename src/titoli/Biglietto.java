@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "titoli")
 public class Biglietto extends Titolo{
 	
 	@Column

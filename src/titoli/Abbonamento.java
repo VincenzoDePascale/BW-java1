@@ -9,7 +9,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "titoli")
 public class Abbonamento extends Titolo {
 	
 	@Column
