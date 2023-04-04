@@ -1,29 +1,89 @@
 package tessere;
 
-//import JPA_util.JpaUtil;
+import JPA_util.JpaUtil;
 
-//
-//import java.util.List;
-//
-//import javax.persistence.EntityManager;
-//import javax.persistence.EntityManagerFactory;
-//import javax.persistence.Persistence;
-//import javax.persistence.Query;
-//
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+
 public class TesseraDAO {
-//	
-//	static EntityManager em = JpaUtil.getEmf().createEntityManager();
-//
-//	public static void main(String[] args) {
-//		
-//		List<Tessera> listaTessere = findAllTessere();
-//		// TODO Auto-generated method stub
-//
-//	}
-//
-//	public static List<Tessera> findAllTessere() {
-//		Query q = em.createNamedQuery("tessere.findAll");
-//		return q.getResultList();
-//	}
+	
+	static EntityManager em = JpaUtil.getEmf().createEntityManager();
+
+	public static void main(String[] args) {
+		
+		List<Tessera> listaTessere;
+		
+		try {
+			
+			Tessera T1 = new Tessera();
+			T1.setData_creazione(LocalDate.of(2022, 4, 1));
+			addTessera(T1);
+			
+			Tessera T2 = new Tessera();
+			T2.setData_creazione(LocalDate.of(2023, 2, 7));
+			addTessera(T2);
+			
+			Tessera T3 = new Tessera();
+			T3.setData_creazione(LocalDate.of(2022, 5, 7));
+			addTessera(T3);
+			
+			Tessera T4 = new Tessera();
+			T4.setData_creazione(LocalDate.of(2022, 11, 6));
+			addTessera(T4);
+			
+			Tessera T5 = new Tessera();
+			T5.setData_creazione(LocalDate.of(2022, 7, 12));
+			addTessera(T5);
+
+			listaTessere = findAllTessere();
+			listaTessere.forEach(el -> System.out.println(el));
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally {
+			em.close();
+		}
+
+	}
+
+	public static List<Tessera> findAllTessere() {
+		Query q = em.createNamedQuery("tessere.findAll");
+		return q.getResultList();
+	}
+	
+	public static void addTessera(Tessera t) {
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
+		System.out.println("Nuova tessera creata!");
+	}
+	
+	public static void dellTessera(Tessera t) {
+		em.getTransaction().begin();
+		em.remove(t);
+		em.getTransaction().commit();
+		System.out.println("Tessera eliminata!");
+	}
+	
+	public static Tessera serchByid(Long id) {
+		em.getTransaction().begin();
+		
+		TypedQuery<Tessera> query = em.createQuery("SELECT t FROM Tessera t WHERE t.id = :id", Tessera.class);
+		query.setParameter("id", id);
+		Tessera resultp = query.getSingleResult();
+		
+		em.getTransaction().commit();
+		
+	    if (resultp != null) {
+	    	System.out.println(resultp.toString());
+	    } else {
+	        System.out.println("Nessuna tessera trovata con questo numero " + id);
+	    }
+	    return resultp;
+	}
 
 }

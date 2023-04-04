@@ -40,9 +40,9 @@ public class Abbonamento extends Titolo {
 	public void setData_inizio(LocalDate data_inizio, TipoAbbonamento durata) {
 		this.data_inizio = data_inizio;
 		if(durata == TipoAbbonamento.SETTIMANALE) {
-			this.data_scadenza = data_inizio.plusDays(7);
+			this.data_scadenza = data_inizio.plusWeeks(1);
 		} else if (durata == TipoAbbonamento.MENSILE) {
-			this.data_scadenza = data_inizio.plusDays(30);
+			this.data_scadenza = data_inizio.plusMonths(1);
 		}
 		
 	}

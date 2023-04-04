@@ -1,70 +1,65 @@
 package tessere;
-//
-//import java.time.LocalDate;
-//
-//import javax.persistence.*;
-//
-//@Entity
-//@Table(name = "tessere")
-//@NamedQuery(name="tessere.findAll", query = "SELECT t FROM Tessera t")
+
+import java.time.LocalDate;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tessere")
+@NamedQuery(name="tessere.findAll", query = "SELECT t FROM Tessera t")
+@SequenceGenerator(name= "tessera_sequence", sequenceName = "tessera_sequence", initialValue = 1000, allocationSize = 0)
 public class Tessera {
-//
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "id")
-//	private Long id;
-//	
-//	/*@OneToOne(mappedBy= "numero_tessera")*/
-//	@Column
-//	private Long numero_tessera;
-//	
-//	@Column(nullable = false)
-//	private LocalDate data_scadenza;
-//	
-//	
-//	public Tessera() {}
-//
-//
-//	public Tessera(Long numero_tessera, LocalDate data_scadenza) {
-//		super();
-//		this.numero_tessera = numero_tessera;
-//		this.data_scadenza = data_scadenza;
-//	}
-//
-//
-//	public Long getId() {
-//		return id;
-//	}
-//
-//
-//
-//
-//	public Long getNumero_tessera() {
-//		return numero_tessera;
-//	}
-//
-//
-//	public void setNumero_tessera(Long numero_tessera) {
-//		this.numero_tessera = numero_tessera;
-//	}
-//
-//
-//	public LocalDate getData_scadenza() {
-//		return data_scadenza;
-//	}
-//
-//
-//	public void setData_scadenza(LocalDate data_scadenza) {
-//		this.data_scadenza = data_scadenza;
-//	}
-//
-//
-//	@Override
-//	public String toString() {
-//		return "Tessera [id=" + id + ", numero_tessera=" + numero_tessera + ", data_scadenza=" + data_scadenza + "]";
-//	}
-//	
-//	
-//	
-//	
+
+	/*@OneToOne(mappedBy= "numero_tessera")*/
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tessera_sequence")
+	@Column(name = "numero_tessera")
+	private Long id;
+	
+	@Column(nullable = false)
+	private LocalDate data_creazione;
+	
+	@Column(nullable = false)
+	private LocalDate data_scadenza;
+	
+	
+	public Tessera() {}
+
+
+	public Tessera(LocalDate data_creazione) {
+		super();
+		this.data_creazione = data_creazione;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public LocalDate getData_creazione() {
+		return data_creazione;
+	}
+
+
+	public void setData_creazione(LocalDate data_creazione) {
+		this.data_creazione = data_creazione;
+		this.data_scadenza = data_creazione.plusYears(1);
+	}
+
+	public LocalDate getData_scadenza() {
+		return data_scadenza;
+	}
+
+	public void setData_scadenza(LocalDate data_scadenza) {
+		this.data_scadenza = data_scadenza;
+	}
+
+	@Override
+	public String toString() {
+		return "Tessera [getId()=" + getId() + ", getData_creazione()="
+				+ getData_creazione()+ ", getData_scadenza()="
+				+ getData_scadenza() + "]";
+	}
+	
 }
