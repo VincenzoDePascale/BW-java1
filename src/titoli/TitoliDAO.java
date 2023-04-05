@@ -13,7 +13,7 @@ public class TitoliDAO {
 		
 		
 		
-		//List<Titolo> listaTitoli = findAllTitoli();
+		List<Titolo> listaTitoli = findAllTitoli();
 		
 		try {
 			
@@ -96,7 +96,7 @@ public class TitoliDAO {
 		em.getTransaction().begin();
 		em.remove(e);
 		em.getTransaction().commit();
-		System.out.println("itolo eliminato!");
+		System.out.println("titolo eliminato!");
 	}
 	
 	public static Titolo serchByNum(Long id) {

@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import negozi.PuntiVendita;
+
 @Entity
 public class Biglietto extends Titolo{
 	
@@ -17,8 +19,8 @@ public class Biglietto extends Titolo{
 	
 	public Biglietto () {}
 	
-	public Biglietto(LocalDate data_emissione) {
-		super(data_emissione);
+	public Biglietto(LocalDate data_emissione, PuntiVendita punto_vendita) {
+		super(data_emissione, punto_vendita);
 	}
 
 

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import titoli.Abbonamento;
 import utenti.Utente;
 
 @Entity
@@ -19,6 +20,9 @@ public class Tessera {
 	
 	@OneToOne(mappedBy= "tessera")
 	private Utente utenti;
+	
+	@OneToOne(mappedBy= "tessera")
+	private Abbonamento abbonamento;
 	
 	@Column(nullable = false)
 	private LocalDate data_creazione;
