@@ -38,7 +38,6 @@ public class UtentiDAO {
 			
 			System.out.println(findUtenteById(1l));
 						
-			
 			listaUtenti = findAllUtenti();
 		}catch(Exception e){
 			e.printStackTrace();

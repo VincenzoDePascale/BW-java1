@@ -1,6 +1,7 @@
 package tratte;
 
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import mezzi.ParcoMezzi;
 
 @Entity
 @Table(name = "tratte")
@@ -23,6 +28,9 @@ public class Tratta {
 	
 	@Column(nullable = false)
 	private String nome_tratta;
+	
+	@OneToMany(mappedBy= "tratta")
+	private List<ParcoMezzi> parco_mezzi;
 	
 	@Column
 	private LocalTime durata_media;

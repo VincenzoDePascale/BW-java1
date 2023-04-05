@@ -18,9 +18,9 @@ public class TratteDAO {
 		t.setNome_tratta("Na-Ro");
 		t.setPartenza("Napoli");
 		
-		//addTratta(t);
-		//List<Tratta> listaDelleTratte = findAllTratte();
-		//System.out.println(listaDelleTratte);
+		addTratta(t);
+		List<Tratta> listaDelleTratte = findAllTratte();
+		System.out.println(listaDelleTratte);
 		Tratta letta = findTrattaByID(4l);
 		System.out.println(letta);
 		
@@ -36,7 +36,7 @@ public class TratteDAO {
 		em.getTransaction().begin();
 		em.persist(t);
 		em.getTransaction().commit();
-		System.out.println("Tratta aggiunto");
+		System.out.println("Tratta aggiunta");
 	}
 	
 	public static List<Tratta> findAllTratte() {

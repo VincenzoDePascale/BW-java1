@@ -2,11 +2,55 @@ package mezzi;
 
 import JPA_util.JpaUtil;
 import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+
 import main.Main;
+import tratte.Tratta;
+import tratte.TratteDAO;
 
 public class MezziDAO {
+	
+	static EntityManager em = JpaUtil.getEmf().createEntityManager();
 
 	public static void main(String[] args) {
+		
+		
+		
+		try {
+			List<ParcoMezzi> listaMezzi;
+			
+			
+			Tratta T1 = new Tratta();
+			T1.setNome_tratta("Ro-Mi");
+			T1.setPartenza("Roma");
+			T1.setCapolinea("Milano");
+			//TratteDAO.addTratta(T1);
+			ParcoMezzi P1 = new ParcoMezzi();
+			P1.setTipo_mezzo(TipoMezzo.TRAM);
+			P1.setNome("Tram1");
+			P1.setIn_servizio(true);
+			P1.setCapienza(100);
+			P1.setTratta(T1);
+			//addMezzo(P1);
+			
+			ParcoMezzi P2 = new ParcoMezzi();
+			P2.setTipo_mezzo(TipoMezzo.BUS);
+			P2.setNome("Bus1");
+			P2.setIn_servizio(true);
+			P2.setCapienza(100);
+			P2.setTratta(T1);
+			addMezzo(P2);
+			
+			
+			listaMezzi = findAllMezzi();
+			} catch (Exception e){
+				em.getTransaction().rollback();
+			} finally {
+				em.close();
+			}
 		
 	}
 	
@@ -74,4 +118,17 @@ public class MezziDAO {
 		
 	}
 
+	
+	public static void addMezzo(ParcoMezzi t) {
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
+		System.out.println("Mezzo aggiunto");
+	}
+	
+	
+	public static List<ParcoMezzi> findAllMezzi() {
+		Query q = em.createNamedQuery("parco_mezzi.findAll");
+		return q.getResultList();
+	}
 }
