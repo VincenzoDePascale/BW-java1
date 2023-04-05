@@ -42,6 +42,7 @@ public class TesseraDAO {
 
 			listaTessere = findAllTessere();
 			listaTessere.forEach(el -> System.out.println(el));
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {

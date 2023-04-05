@@ -4,18 +4,21 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+import utenti.Utente;
+
 @Entity
 @Table(name = "tessere")
 @NamedQuery(name="tessere.findAll", query = "SELECT t FROM Tessera t")
 @SequenceGenerator(name= "tessera_sequence", sequenceName = "tessera_sequence", initialValue = 1000, allocationSize = 0)
 public class Tessera {
 
-	/*@OneToOne(mappedBy= "numero_tessera")*/
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tessera_sequence")
 	@Column(name = "numero_tessera")
 	private Long id;
+	
+	@OneToOne(mappedBy= "tessera")
+	private Utente utenti;
 	
 	@Column(nullable = false)
 	private LocalDate data_creazione;
@@ -30,12 +33,14 @@ public class Tessera {
 	public Tessera(LocalDate data_creazione) {
 		super();
 		this.data_creazione = data_creazione;
+		this.data_scadenza = data_creazione.plusYears(1);
 	}
 
 
 	public Long getId() {
 		return id;
 	}
+
 
 	public LocalDate getData_creazione() {
 		return data_creazione;
