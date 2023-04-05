@@ -1,6 +1,5 @@
 package titoli;
 
-import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.*;
 import JPA_util.JpaUtil;
@@ -13,10 +12,11 @@ public class TitoliDAO {
 		
 		
 		
-		List<Titolo> listaTitoli = findAllTitoli();
+		
 		
 		try {
 			
+//			List<Titolo> listaTitoli = findAllTitoli();
 //			Abbonamento A1 = new Abbonamento();
 //			A1.setData_emissione(LocalDate.of(2023, 4, 4));
 //			A1.setDurata(TipoAbbonamento.MENSILE);
@@ -115,5 +115,5 @@ public class TitoliDAO {
 	    }
 	    return resultp;
 	}
-
+	
 }

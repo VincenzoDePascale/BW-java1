@@ -47,11 +47,9 @@ public class Abbonamento extends Titolo {
 		this.data_inizio = data;
 		LocalDate dataScadenza = null;
 		if(durata == TipoAbbonamento.SETTIMANALE) {
-			System.out.println(durata);
 			dataScadenza = data.plusWeeks(1);
 		} else if (durata == TipoAbbonamento.MENSILE) {
 			dataScadenza = data.plusMonths(1);
-			System.out.println(durata);
 		}
 		this.data_scadenza = dataScadenza;
 

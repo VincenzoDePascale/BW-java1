@@ -16,32 +16,32 @@ public class TesseraDAO {
 
 	public static void main(String[] args) {
 		
-		List<Tessera> listaTessere;
+		
 		
 		try {
-			
-			Tessera T1 = new Tessera();
-			T1.setData_creazione(LocalDate.of(2022, 4, 1));
-			addTessera(T1);
-			
-			Tessera T2 = new Tessera();
-			T2.setData_creazione(LocalDate.of(2023, 2, 7));
-			addTessera(T2);
-			
-			Tessera T3 = new Tessera();
-			T3.setData_creazione(LocalDate.of(2022, 5, 7));
-			addTessera(T3);
-			
-			Tessera T4 = new Tessera();
-			T4.setData_creazione(LocalDate.of(2022, 11, 6));
-			addTessera(T4);
-			
-			Tessera T5 = new Tessera();
-			T5.setData_creazione(LocalDate.of(2022, 7, 12));
-			addTessera(T5);
-
-			listaTessere = findAllTessere();
-			listaTessere.forEach(el -> System.out.println(el));
+//			List<Tessera> listaTessere;
+//			Tessera T1 = new Tessera();
+//			T1.setData_creazione(LocalDate.of(2022, 4, 1));
+//			addTessera(T1);
+//			
+//			Tessera T2 = new Tessera();
+//			T2.setData_creazione(LocalDate.of(2023, 2, 7));
+//			addTessera(T2);
+//			
+//			Tessera T3 = new Tessera();
+//			T3.setData_creazione(LocalDate.of(2022, 5, 7));
+//			addTessera(T3);
+//			
+//			Tessera T4 = new Tessera();
+//			T4.setData_creazione(LocalDate.of(2022, 11, 6));
+//			addTessera(T4);
+//			
+//			Tessera T5 = new Tessera();
+//			T5.setData_creazione(LocalDate.of(2022, 7, 12));
+//			addTessera(T5);
+//
+//			listaTessere = findAllTessere();
+//			listaTessere.forEach(el -> System.out.println(el));
 			
 		}catch(Exception e){
 			e.printStackTrace();

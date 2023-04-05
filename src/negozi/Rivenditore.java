@@ -1,6 +1,7 @@
 package negozi;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,33 +10,33 @@ import javax.persistence.Entity;
 public class Rivenditore extends PuntiVendita {
 	
 	@Column
-	private LocalDate apertura;
+	private LocalTime apertura;
 	
 	@Column
-	private LocalDate chiusura;
+	private LocalTime chiusura;
 	
 	public Rivenditore () {}
 
-	public Rivenditore(String nome, LocalDate apertura,
-			LocalDate chiusura) {
+	public Rivenditore(String nome, LocalTime apertura,
+			LocalTime chiusura) {
 		super(nome);
 		this.apertura = apertura;
 		this.chiusura = chiusura;
 	}
 
-	public LocalDate getApertura() {
+	public LocalTime getApertura() {
 		return apertura;
 	}
 
-	public void setApertura(LocalDate apertura) {
+	public void setApertura(LocalTime apertura) {
 		this.apertura = apertura;
 	}
 
-	public LocalDate getChiusura() {
+	public LocalTime getChiusura() {
 		return chiusura;
 	}
 
-	public void setChiusura(LocalDate chiusura) {
+	public void setChiusura(LocalTime chiusura) {
 		this.chiusura = chiusura;
 	}
 

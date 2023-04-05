@@ -13,16 +13,16 @@ public class TratteDAO {
 	public static void main(String[] args) {
 		
 		try {
-		Tratta t = new Tratta();
-		t.setCapolinea("Roma");
-		t.setNome_tratta("Na-Ro");
-		t.setPartenza("Napoli");
-		
-		addTratta(t);
-		List<Tratta> listaDelleTratte = findAllTratte();
-		System.out.println(listaDelleTratte);
-		Tratta letta = findTrattaByID(4l);
-		System.out.println(letta);
+//		Tratta t = new Tratta();
+//		t.setCapolinea("Roma");
+//		t.setNome_tratta("Na-Ro");
+//		t.setPartenza("Napoli");
+//		
+//		addTratta(t);
+//		List<Tratta> listaDelleTratte = findAllTratte();
+//		System.out.println(listaDelleTratte);
+//		Tratta letta = findTrattaByID(4l);
+//		System.out.println(letta);
 		
 		} catch (Exception e){
 			em.getTransaction().rollback();
