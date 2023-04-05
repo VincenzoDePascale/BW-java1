@@ -1,10 +1,12 @@
 /META-INF/
-<<<<<<< HEAD
-/titoli/
-=======
+/.DS_Store
+/.gitignore
+/JPA_util/
 /main/
->>>>>>> branch 'main' of https://github.com/VincenzoDePascale/BW-java1.git
 /mezzi/
-/utenti/
-/tratte/
+/negozi/
+/registri/
 /tessere/
+/titoli/
+/tratte/
+/utenti/

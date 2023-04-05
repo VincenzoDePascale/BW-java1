@@ -36,27 +36,32 @@ public class Abbonamento extends Titolo {
 		super(data_emissione, punto_vendita);
 		this.data_inizio = data_inizio;
 		this.durata = durata;
-		this.data_scadenza = setData_inizio(data_inizio, durata);
+		setData_inizio(data_inizio, durata);
 	}
 
 	public LocalDate getData_inizio() {
 		return data_inizio;
 	}
 
-	public LocalDate setData_inizio(LocalDate data_inizio, TipoAbbonamento durata) {
-		this.data_inizio = data_inizio;
+	public void setData_inizio(LocalDate data, TipoAbbonamento durata) {
+		this.data_inizio = data;
+		LocalDate dataScadenza = null;
 		if(durata == TipoAbbonamento.SETTIMANALE) {
-			this.data_scadenza = data_inizio.plusWeeks(1);
+			System.out.println(durata);
+			dataScadenza = data.plusWeeks(1);
 		} else if (durata == TipoAbbonamento.MENSILE) {
-			this.data_scadenza = data_inizio.plusMonths(1);
+			dataScadenza = data.plusMonths(1);
+			System.out.println(durata);
 		}
-		return this.data_scadenza;
+		this.data_scadenza = dataScadenza;
+
+
 	}
 
 	public void setData_scadenza(LocalDate data_scadenza) {
-		this.data_scadenza = setData_inizio(data_inizio, durata);
+		this.data_scadenza = data_scadenza;
 	}
-	
+
 	public LocalDate getData_scadenza() {
 		return data_scadenza;
 	}

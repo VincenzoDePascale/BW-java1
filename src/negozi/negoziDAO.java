@@ -11,6 +11,7 @@ import tessere.Tessera;
 import tessere.TesseraDAO;
 import titoli.Abbonamento;
 import titoli.Biglietto;
+import titoli.TipoAbbonamento;
 import titoli.TitoliDAO;
 import titoli.Titolo;
 import utenti.Utente;
@@ -47,8 +48,11 @@ public class negoziDAO {
 			Abbonamento A1 = new Abbonamento();
 			A1.setData_emissione(LocalDate.of(2024, 4, 5));
 			A1.setTessera(T1);
+			A1.setDurata(TipoAbbonamento.MENSILE);
+			A1.setData_inizio(LocalDate.of(2024, 5, 1), A1.getDurata());
 			A1.setPunto_vendita(P1);
 			TitoliDAO.addTitolo(A1);
+	
 			
 			
 			
