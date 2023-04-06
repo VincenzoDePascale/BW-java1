@@ -56,5 +56,12 @@ public class TratteDAO {
 		q.setParameter("id", id);
 		return (Tratta) q.getSingleResult();
 	}
+	public static void caricaTempoMedio(long id,long tempo) {
+		Tratta t = TratteDAO.findTrattaByID(id);
+		t.setDurata_media(tempo);
+		em.getTransaction().begin();
+		em.merge(t);
+		em.getTransaction().commit();
+	}
 
 }

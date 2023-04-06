@@ -32,9 +32,8 @@ public class Tratta {
 	@OneToMany(mappedBy= "tratta")
 	private List<ParcoMezzi> parco_mezzi;
 	
-	
 	@Column
-	private LocalTime durata_media;
+	private Long durata_media;
 	
 	@Column(nullable = false)
 	private String partenza;
@@ -47,7 +46,6 @@ public class Tratta {
 	public Tratta(String nome_tratta, LocalTime durata_media, String partenza, String capolinea) {
 		super();
 		this.nome_tratta = nome_tratta;
-		this.durata_media = durata_media;
 		this.partenza = partenza;
 		this.capolinea = capolinea;
 	}
@@ -65,11 +63,11 @@ public class Tratta {
 		this.nome_tratta = nome_tratta;
 	}
 
-	public LocalTime getDurata_media() {
+	public Long getDurata_media() {
 		return durata_media;
 	}
 
-	public void setDurata_media(LocalTime durata_media) {
+	public void setDurata_media(Long durata_media) {
 		this.durata_media = durata_media;
 	}
 

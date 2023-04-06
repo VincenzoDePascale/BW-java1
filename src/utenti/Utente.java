@@ -16,7 +16,7 @@ public class Utente {
 	private Long id;
 	
 	@OneToOne
-	@JoinColumn(name= "tessera_utente")
+	@JoinColumn(name= "tessera_utente", unique= true)
 	private Tessera tessera;
 	
 	@Column(nullable = false)

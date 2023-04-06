@@ -37,15 +37,15 @@ public class Main {
 			
 			//creazione tratte
 			Tratta TA1 = new Tratta();
-			TA1.setNome_tratta("Ro-Mi");
-			TA1.setPartenza("Roma");
-			TA1.setCapolinea("Milano");
+			TA1.setNome_tratta("Na-Sa");
+			TA1.setPartenza("Napoli");
+			TA1.setCapolinea("Salerno");
 			addElement(TA1);
 			
 			//creazione mezzi
 			ParcoMezzi TM1 = new ParcoMezzi();
 			TM1.setTipo_mezzo(TipoMezzo.TRAM);
-			TM1.setNome("Tram1");
+			TM1.setNome("Tram3");
 			TM1.setIn_servizio(true);
 			TM1.setCapienza(100);
 			TM1.setTratta(TA1);
@@ -53,7 +53,7 @@ public class Main {
 			
 			ParcoMezzi BS1 = new ParcoMezzi();
 			BS1.setTipo_mezzo(TipoMezzo.BUS);
-			BS1.setNome("Bus1");
+			BS1.setNome("Bus2");
 			BS1.setIn_servizio(true);
 			BS1.setCapienza(100);
 			BS1.setTratta(TA1);
@@ -81,8 +81,8 @@ public class Main {
 			addElement(TS1);
 
 			Utente UT1 = new Utente();
-			UT1.setNome("giacomo");
-			UT1.setCognome("Cognome");
+			UT1.setNome("Vincenzo");
+			UT1.setCognome("De Saverio");
 			UT1.setTessera(TS1);
 			addElement(UT1);
 			
@@ -103,13 +103,15 @@ public class Main {
 			addElement(RM1);
 			
 			Registro_viaggi V1 = new Registro_viaggi();
-			V1.setInit_viaggio(LocalTime.parse("10:30"));
-			V1.setFine_viaggio(LocalTime.parse("12:20"));
+			V1.setInit_viaggio(LocalTime.parse("11:30"));
+			V1.setFine_viaggio(LocalTime.parse("13:20"));
 			V1.setTratta(TA1);
-			V1.setParco_mezzi(BS1);
+			V1.setParco_mezzi(TM1);
+			V1.setNome(TM1.getNome());
 			addElement(V1);
 			
 			
+			//TitoliDAO.validaBiglietto(1l);
 			//System.out.println(TitoliDAO.findtitoloDaNegozio(1L));
 			
 			

@@ -116,6 +116,15 @@ public class TitoliDAO {
 	    return resultp;
 	}
 	
+	public static void validaBiglietto(Long id) {
+		Biglietto tit = (Biglietto) serchByNum(id);
+		tit.setValido(false);
+		em.getTransaction().begin();
+		em.merge(tit);
+		em.getTransaction().commit();
+		
+	}
+	
 	/*public static List<Titolo> findtitoloDaNegozio(Long id) {
 		Query q = em.createNamedQuery("FindTitoliDaNegozio");
 		q.setParameter("id", id);
