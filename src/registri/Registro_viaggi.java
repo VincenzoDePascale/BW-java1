@@ -8,7 +8,7 @@ package registri;
 //import tratte.Tratta;
 //
 //@Entity
-public class Registro_viaggi extends Registro {
+public class Registro_viaggi {
 //	
 //	@Column
 //	private LocalDate init_viaggio;
