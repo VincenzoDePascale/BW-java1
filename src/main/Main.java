@@ -69,7 +69,7 @@ public class Main {
 			RV1.setNome("Rivendi Tore");
 			RV1.setApertura(LocalTime.parse("09:30"));
 			RV1.setChiusura(LocalTime.parse("18:30"));
-			addElement(RV1);
+			//addElement(RV1);
 			
 			Biglietto BB1 = new Biglietto();
 			BB1.setData_emissione(LocalDate.of(2023, 4, 5));
@@ -93,6 +93,15 @@ public class Main {
 			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
 			AB1.setPunto_vendita(DB1);
 			//addElement(AB1);
+			
+			//registro manutenzione
+			Registro_manutenzione RM1 = new Registro_manutenzione();
+			RM1.setInit_manutenzione(LocalDate.of(2023, 2, 5));
+			RM1.setFine_manutenzione(LocalDate.of(2023, 3, 5));
+			RM1.setMezzo(BS1);
+			addElement(RM1);
+			
+			//System.out.println(TitoliDAO.findtitoloDaNegozio(1L));
 			
 			
 			

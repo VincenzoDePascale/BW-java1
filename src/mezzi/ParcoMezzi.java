@@ -1,6 +1,7 @@
 package mezzi;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import registri.Registro_manutenzione;
 import tratte.Tratta;
 
 @Entity
@@ -39,10 +43,13 @@ public class ParcoMezzi {
 	@Column(nullable = false)
 	private Boolean in_manutenzione;
 	
-	@Column
+	/*@Column
 	private LocalDate inizio_manutenzione;
 	@Column
-	private LocalDate fine_manutenzione;
+	private LocalDate fine_manutenzione;*/
+	
+	@OneToMany(mappedBy = "parco_mezzi")
+	private List<Registro_manutenzione> registro_manutenzione;
 	
 	@Column(nullable = false)
 	private int capienza;
@@ -59,20 +66,10 @@ public class ParcoMezzi {
 		this.in_servizio = in_servizio;
 		this.capienza = capienza;
 	}
-	
-	public ParcoMezzi(TipoMezzo tipo_mezzo, String nome, Boolean in_servizio, LocalDate inizio_manutenzione, int capienza) {
-		this.tipo_mezzo = tipo_mezzo;
-		this.nome = nome;
-		this.in_servizio = in_servizio;
-		this.inizio_manutenzione = inizio_manutenzione;
-		this.capienza = capienza;
-
-	}
 
 	public Long getId() {
 		return id;
 	}
-
 
 	public TipoMezzo getTipo_mezzo() {
 		return tipo_mezzo;
@@ -123,22 +120,6 @@ public class ParcoMezzi {
 
 	public void setTratta(Tratta tratta) {
 		this.tratta = tratta;
-	}
-
-	public LocalDate getInizio_manutenzione() {
-		return inizio_manutenzione;
-	}
-
-	public void setInizio_manutenzione(LocalDate inizio_manutenzione) {
-		this.inizio_manutenzione = inizio_manutenzione;
-	}
-
-	public LocalDate getFine_manutenzione() {
-		return fine_manutenzione;
-	}
-
-	public void setFine_manutenzione(LocalDate fine_manutenzione) {
-		this.fine_manutenzione = fine_manutenzione;
 	}
 
 	@Override

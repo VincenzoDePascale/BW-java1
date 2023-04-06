@@ -116,4 +116,10 @@ public class TitoliDAO {
 	    return resultp;
 	}
 	
+	/*public static List<Titolo> findtitoloDaNegozio(Long id) {
+		Query q = em.createNamedQuery("FindTitoliDaNegozio");
+		q.setParameter("id", id);
+		return q.getResultList();
+	}*/
+	
 }

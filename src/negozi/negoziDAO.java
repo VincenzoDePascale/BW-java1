@@ -54,7 +54,7 @@ public class negoziDAO {
 //			A1.setData_inizio(LocalDate.of(2024, 5, 1), A1.getDurata());
 //			A1.setPunto_vendita(P1);
 //			TitoliDAO.addTitolo(A1);
-	
+//	
 //			listaPuntivendita = findAllPuntiVendita();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -82,5 +82,6 @@ public class negoziDAO {
 		em.getTransaction().commit();
 		System.out.println("Punto vendita eliminato!");
 	}
+	
 	
 }
