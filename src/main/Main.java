@@ -102,6 +102,14 @@ public class Main {
 			RM1.setNome(BS1.getNome());
 			addElement(RM1);
 			
+			Registro_viaggi V1 = new Registro_viaggi();
+			V1.setInit_viaggio(LocalTime.parse("10:30"));
+			V1.setFine_viaggio(LocalTime.parse("12:20"));
+			V1.setTratta(TA1);
+			V1.setParco_mezzi(BS1);
+			addElement(V1);
+			
+			
 			//System.out.println(TitoliDAO.findtitoloDaNegozio(1L));
 			
 			

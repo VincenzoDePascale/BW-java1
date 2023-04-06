@@ -32,6 +32,7 @@ public class Tratta {
 	@OneToMany(mappedBy= "tratta")
 	private List<ParcoMezzi> parco_mezzi;
 	
+	
 	@Column
 	private LocalTime durata_media;
 	
