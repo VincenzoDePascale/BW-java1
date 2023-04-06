@@ -2,6 +2,7 @@ package registri;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -54,11 +55,19 @@ public class RegistriDAO {
 	}
 	
 	public static void caricaTempoMedio(long id,long tempo) {	
+		List<Long> totTempo = null;
+		totTempo.add(tempo);
 		Tratta t = TratteDAO.findTrattaByID(id);
-		t.setDurata_media(tempo);
+		
+		long results = totTempo
+		.stream()
+		.reduce((long) 0, (subtotal, x)-> subtotal + x);
+		t.setDurata_media(results);
 	    em.getTransaction().begin();
 	    em.merge(t);
 		em.getTransaction().commit();
 	}
+	
+	////reduce da provare
 
 }
