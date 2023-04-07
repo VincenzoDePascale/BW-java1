@@ -8,6 +8,7 @@ import tessere.Tessera;
 @Table(name = "utenti")
 @NamedQuery(name="utenti.findAll", query = "SELECT e FROM Utente e")
 @NamedQuery(name="utenti.findId", query = "SELECT e FROM Utente e WHERE e.id = :id")
+@NamedQuery(name="utenti.findTessera", query = "SELECT e FROM Utente e WHERE tessera_utente = :tessera")
 public class Utente {
 	
 	@Id

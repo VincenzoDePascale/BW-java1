@@ -39,6 +39,7 @@ public class UtentiDAO {
 //			System.out.println(findUtenteById(1l));
 //						
 //			listaUtenti = findAllUtenti();
+			findUtenteByTessera(1043l);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -71,5 +72,12 @@ public class UtentiDAO {
 		em.getTransaction().commit();
 		System.out.println("utente eliminato!");
 	}
+	
+	public static Utente findUtenteByTessera(Long numero) {
+		Query q = em.createNamedQuery("utenti.findTessera");
+		q.setParameter("tessera", numero);
+		return (Utente) q.getSingleResult();
+
+		}
 
 }
