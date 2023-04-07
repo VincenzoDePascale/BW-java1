@@ -78,8 +78,8 @@ public class Main {
 			//addElement(BB1);
 			TitoliDAO.calcolaBiglietti(6l);						
 			Tessera TS1 = new Tessera();
-			TS1.setData_creazione(LocalDate.of(2023, 4, 5));
-			//addElement(TS1);
+			TS1.setData_creazione(LocalDate.of(2023, 6, 5));
+			addElement(TS1);
 
 			Utente UT1 = new Utente();
 			UT1.setNome("Vincenzo");
@@ -87,14 +87,14 @@ public class Main {
 			UT1.setTessera(TS1);
 			//addElement(UT1);
 			
-			Tessera Tess = TesseraDAO.serchByid(1043l);
+			Tessera Tess = TesseraDAO.serchByid(1045l);
 			Abbonamento AB1 = new Abbonamento();
 			AB1.setData_emissione(LocalDate.of(2024, 4, 5));
 			AB1.setTessera(Tess);
 			AB1.setDurata(TipoAbbonamento.MENSILE);
 			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
 			AB1.setPunto_vendita(t);
-			//addElement(AB1);
+			addElement(AB1);
 			TitoliDAO.calcolaAbbonamenti(6l);	
 			
 			//registro manutenzione

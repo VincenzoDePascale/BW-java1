@@ -10,6 +10,7 @@ import utenti.Utente;
 @Entity
 @Table(name = "tessere")
 @NamedQuery(name="tessere.findAll", query = "SELECT t FROM Tessera t")
+@NamedQuery(name="findTesseraById", query = "SELECT t FROM Tessera t WHERE numero_tessera = :id")
 @SequenceGenerator(name= "tessera_sequence", sequenceName = "tessera_sequence", initialValue = 1000, allocationSize = 0)
 public class Tessera {
 

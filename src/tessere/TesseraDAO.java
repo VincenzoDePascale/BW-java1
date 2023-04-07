@@ -45,14 +45,14 @@ public class TesseraDAO {
 //			listaTessere.forEach(el -> System.out.println(el));
 			
 
-			Tessera tessera = serchByid(1043L);
-            boolean isValid = isAbbonamentoValid(tessera);
-            if (isValid) {
-                System.out.println("Abbonamento valido!");
-            } else {
-                System.out.println("Abbonamento scaduto o inesistente!");
-            }
-			
+//	
+//            boolean isValid = isAbbonamentoValid(serchByid(1042l));
+//            if (isValid) {
+//                System.out.println("Abbonamento valido!");
+//            } else {
+//                System.out.println("Abbonamento scaduto o inesistente!");
+//            }
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -83,7 +83,7 @@ public class TesseraDAO {
 	public static Tessera serchByid(Long id) {
 		em.getTransaction().begin();
 		
-		TypedQuery<Tessera> query = em.createQuery("SELECT t FROM Tessera t WHERE t.id = :id", Tessera.class);
+		TypedQuery<Tessera> query = (TypedQuery<Tessera>) em.createQuery("SELECT t FROM Tessera t WHERE t.id = :id");
 		query.setParameter("id", id);
 		Tessera resultp = query.getSingleResult();
 		

@@ -77,8 +77,8 @@ public class TitoliDAO {
 //          listaTitoli =  findAllTitoli();
 //          listaTitoli.forEach(el -> System.out.println(el));
 			
-			calcolaBiglietti(5l);
-			calcolaAbbonamenti(5l);
+			calcolaBiglietti(1l);
+			calcolaAbbonamenti(1l);
             
 		}catch(Exception e){
 			e.printStackTrace();
