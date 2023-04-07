@@ -87,6 +87,7 @@ public class Main {
             TA10.setCapolinea("Catania");
             
             //add tratte
+            System.out.println("creazione tratte");
           addElement(TA1);
           addElement(TA2);
 		addElement(TA3);
@@ -325,13 +326,13 @@ public class Main {
 			Tessera TS1 = new Tessera();
             TS1.setData_creazione(LocalDate.of(2023, 6, 4));
             Tessera TS2 = new Tessera();
-            TS1.setData_creazione(LocalDate.of(2023, 5, 5));
+            TS2.setData_creazione(LocalDate.of(2023, 5, 5));
             Tessera TS3 = new Tessera();
-            TS1.setData_creazione(LocalDate.of(2023, 4, 6));
+            TS3.setData_creazione(LocalDate.of(2023, 4, 6));
             Tessera TS4 = new Tessera();
-            TS1.setData_creazione(LocalDate.of(2023, 3, 7));
+            TS4.setData_creazione(LocalDate.of(2023, 3, 7));
             Tessera TS5 = new Tessera();
-            TS1.setData_creazione(LocalDate.of(2023, 2, 8));
+            TS5.setData_creazione(LocalDate.of(2023, 2, 8));
             addElement(TS1);
             addElement(TS2);
             addElement(TS3);
@@ -343,21 +344,21 @@ public class Main {
             UT1.setCognome("De Pascale");
             UT1.setTessera(TS1);
             Utente UT2 = new Utente();
-            UT1.setNome("Vincenzo");
-            UT1.setCognome("Picone");
-            UT1.setTessera(TS2);
+            UT2.setNome("Vincenzo");
+            UT2.setCognome("Picone");
+            UT2.setTessera(TS2);
             Utente UT3 = new Utente();
-            UT1.setNome("Carlos");
-            UT1.setCognome("Sarmiento");
-            UT1.setTessera(TS3);
+            UT3.setNome("Carlos");
+            UT3.setCognome("Sarmiento");
+            UT3.setTessera(TS3);
             Utente UT4 = new Utente();
-            UT1.setNome("Saverio");
-            UT1.setCognome("Caracappa");
-            UT1.setTessera(TS4);
+            UT4.setNome("Saverio");
+            UT4.setCognome("Caracappa");
+            UT4.setTessera(TS4);
             Utente UT5 = new Utente();
-            UT1.setNome("Adina");
-            UT1.setCognome("Iamandi");
-            UT1.setTessera(TS5);
+            UT5.setNome("Adina");
+            UT5.setCognome("Iamandi");
+            UT5.setTessera(TS5);
             addElement(UT1);
             addElement(UT2);
             addElement(UT3);
@@ -394,6 +395,7 @@ public class Main {
 			//creazioneTratta();
 			//creazioneMezzo();
 			//nuovoBiglietto();
+			nuovoAbbonamento();
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -550,18 +552,14 @@ public class Main {
          System.out.println("Scegli codice tessera");
     	 Long codTessera = scanner.nextLong();
          scanner.nextLine();
-         AB1.setTessera(null);
+         Tessera tttt = TesseraDAO.serchByid(codTessera);
+         AB1.setTessera(tttt);
+         
+         AB1.setDurata(TipoAbbonamento.MENSILE);
+         addElement(AB1);
+		TitoliDAO.calcolaAbbonamenti(scelta);
     }
     
-    /*
-     Abbonamento AB1 = new Abbonamento();
-			
-			AB1.setTessera(Tess);
-			AB1.setDurata(TipoAbbonamento.MENSILE);
-			
-			AB1.setPunto_vendita(t);
-			addElement(AB1);
-			TitoliDAO.calcolaAbbonamenti(6l);	 
-     */
+    
 	
 }
