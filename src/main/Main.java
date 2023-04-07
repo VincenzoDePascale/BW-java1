@@ -71,11 +71,12 @@ public class Main {
 			RV1.setChiusura(LocalTime.parse("18:30"));
 			//addElement(RV1);
 			
+			PuntiVendita t = negoziDAO.findNegozioByID(1l);
 			Biglietto BB1 = new Biglietto();
 			BB1.setData_emissione(LocalDate.of(2023, 4, 5));
-			BB1.setPunto_vendita(DB1);
-			//addElement(BB1);
-						
+			BB1.setPunto_vendita(t);			
+			addElement(BB1);
+			TitoliDAO.calcolaBiglietti(6l);						
 			Tessera TS1 = new Tessera();
 			TS1.setData_creazione(LocalDate.of(2023, 4, 5));
 			//addElement(TS1);
@@ -86,13 +87,15 @@ public class Main {
 			UT1.setTessera(TS1);
 			//addElement(UT1);
 			
+			Tessera Tess = TesseraDAO.serchByid(1043l);
 			Abbonamento AB1 = new Abbonamento();
 			AB1.setData_emissione(LocalDate.of(2024, 4, 5));
-			AB1.setTessera(TS1);
+			AB1.setTessera(Tess);
 			AB1.setDurata(TipoAbbonamento.MENSILE);
 			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
-			AB1.setPunto_vendita(DB1);
-			//addElement(AB1);
+			AB1.setPunto_vendita(t);
+			addElement(AB1);
+			TitoliDAO.calcolaAbbonamenti(6l);	
 			
 			//registro manutenzione
 			Registro_manutenzione RM1 = new Registro_manutenzione();
