@@ -3,6 +3,7 @@ package utenti;
 import JPA_util.JpaUtil;
 import tessere.Tessera;
 import tessere.TesseraDAO;
+import titoli.Abbonamento;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -39,6 +40,15 @@ public class UtentiDAO {
 //			System.out.println(findUtenteById(1l));
 //						
 //			listaUtenti = findAllUtenti();
+			
+			Utente utente = findUtenteById(2L);
+
+			if (isTesseraValid(utente)) {
+			    System.out.println("tessera is valid");
+			} else {
+			    System.out.println("tessera is not valid");
+			}
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -72,4 +82,12 @@ public class UtentiDAO {
 		System.out.println("utente eliminato!");
 	}
 
+	
+	public static boolean isTesseraValid(Utente utente) {
+	    Tessera tessera = utente.getTessera();
+	    LocalDate dataScadenza = tessera.getData_scadenza();
+	    LocalDate now = LocalDate.now();
+	    return dataScadenza.isAfter(now) || dataScadenza.isEqual(now);
+	}
+	
 }
