@@ -87,16 +87,16 @@ public class Main {
             TA10.setCapolinea("Catania");
             
             //add tratte
-//          addElement(TA1);
-//          addElement(TA2);
-//			addElement(TA3);
-//			addElement(TA4);
-//			addElement(TA5);
-//          addElement(TA6);
-//          addElement(TA7);
-//          addElement(TA8);
-//          addElement(TA9);
-//          addElement(TA10);
+          addElement(TA1);
+          addElement(TA2);
+		addElement(TA3);
+			addElement(TA4);
+		addElement(TA5);
+          addElement(TA6);
+          addElement(TA7);
+          addElement(TA8);
+          addElement(TA9);
+          addElement(TA10);
 								
 			//creazione mezzi
 			ParcoMezzi TM1 = new ParcoMezzi();
@@ -240,26 +240,26 @@ public class Main {
 			BS10.setTratta(TA10);
 			
 			//add bus e tram
-//			addElement(TM1);
-//			addElement(BS1);
-//			addElement(TM2);
-//			addElement(BS2);
-//			addElement(TM3);
-//			addElement(BS3);
-//			addElement(TM4);
-//			addElement(BS4);
-//			addElement(TM5);
-//			addElement(BS5);
-//			addElement(TM6);
-//			addElement(BS6);
-//			addElement(TM7);
-//			addElement(BS7);
-//			addElement(TM8);
-//			addElement(BS8);
-//			addElement(TM9);
-//			addElement(BS9);
-//			addElement(TM10);
-//			addElement(BS10);
+			addElement(TM1);
+			addElement(BS1);
+			addElement(TM2);
+			addElement(BS2);
+			addElement(TM3);
+			addElement(BS3);
+			addElement(TM4);
+			addElement(BS4);
+			addElement(TM5);
+			addElement(BS5);
+			addElement(TM6);
+			addElement(BS6);
+			addElement(TM7);
+			addElement(BS7);
+			addElement(TM8);
+			addElement(BS8);
+			addElement(TM9);
+			addElement(BS9);
+			addElement(TM10);
+			addElement(BS10);
 			
 			//distributori
 			Distributore DB1 = new Distributore();
@@ -283,11 +283,11 @@ public class Main {
 			DB5.setAttivo(true);
 			
 			//add distributori
-//			addElement(DB1);
-//			addElement(DB2);
-//			addElement(DB3);
-//			addElement(DB4);
-//			addElement(DB5);
+			addElement(DB1);
+			addElement(DB2);
+			addElement(DB3);
+			addElement(DB4);
+			addElement(DB5);
 			
 			//rivenditori
 			Rivenditore RV1 = new Rivenditore();
@@ -316,37 +316,58 @@ public class Main {
 			RV5.setChiusura(LocalTime.parse("20:00"));
 			
 			//add rivenditori
-//			addElement(RV1);
-//			addElement(RV2);
-//			addElement(RV3);
-//			addElement(RV4);
-//			addElement(RV5);
+			addElement(RV1);
+			addElement(RV2);
+			addElement(RV3);
+			addElement(RV4);
+			addElement(RV5);
 			
-			PuntiVendita t = negoziDAO.findNegozioByID(1l);
-			Biglietto BB1 = new Biglietto();
-			BB1.setData_emissione(LocalDate.of(2023, 4, 5));
-			BB1.setPunto_vendita(t);			
-			//addElement(BB1);
-			TitoliDAO.calcolaBiglietti(6l);						
 			Tessera TS1 = new Tessera();
-			TS1.setData_creazione(LocalDate.of(2023, 6, 5));
-			addElement(TS1);
+            TS1.setData_creazione(LocalDate.of(2023, 6, 4));
+            Tessera TS2 = new Tessera();
+            TS1.setData_creazione(LocalDate.of(2023, 5, 5));
+            Tessera TS3 = new Tessera();
+            TS1.setData_creazione(LocalDate.of(2023, 4, 6));
+            Tessera TS4 = new Tessera();
+            TS1.setData_creazione(LocalDate.of(2023, 3, 7));
+            Tessera TS5 = new Tessera();
+            TS1.setData_creazione(LocalDate.of(2023, 2, 8));
+            addElement(TS1);
+            addElement(TS2);
+            addElement(TS3);
+            addElement(TS4);
+            addElement(TS5);
 
-			Utente UT1 = new Utente();
-			UT1.setNome("Vincenzo");
-			UT1.setCognome("De Saverio");
-			UT1.setTessera(TS1);
-			//addElement(UT1);
+            Utente UT1 = new Utente();
+            UT1.setNome("Vincenzo");
+            UT1.setCognome("De Pascale");
+            UT1.setTessera(TS1);
+            Utente UT2 = new Utente();
+            UT1.setNome("Vincenzo");
+            UT1.setCognome("Picone");
+            UT1.setTessera(TS2);
+            Utente UT3 = new Utente();
+            UT1.setNome("Carlos");
+            UT1.setCognome("Sarmiento");
+            UT1.setTessera(TS3);
+            Utente UT4 = new Utente();
+            UT1.setNome("Saverio");
+            UT1.setCognome("Caracappa");
+            UT1.setTessera(TS4);
+            Utente UT5 = new Utente();
+            UT1.setNome("Adina");
+            UT1.setCognome("Iamandi");
+            UT1.setTessera(TS5);
+            addElement(UT1);
+            addElement(UT2);
+            addElement(UT3);
+            addElement(UT4);
+            addElement(UT5);
+
+
 			
-			Tessera Tess = TesseraDAO.serchByid(1045l);
-			Abbonamento AB1 = new Abbonamento();
-			AB1.setData_emissione(LocalDate.of(2024, 4, 5));
-			AB1.setTessera(Tess);
-			AB1.setDurata(TipoAbbonamento.MENSILE);
-			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
-			AB1.setPunto_vendita(t);
-			addElement(AB1);
-			TitoliDAO.calcolaAbbonamenti(6l);	
+			
+			//TitoliDAO.calcolaAbbonamenti(6l);	
 			
 			//registro manutenzione
 			Registro_manutenzione RM1 = new Registro_manutenzione();
@@ -356,22 +377,23 @@ public class Main {
 			RM1.setNome(BS1.getNome());
 			//addElement(RM1);
 			
-			Registro_viaggi V1 = new Registro_viaggi();
-			V1.setInit_viaggio(LocalTime.parse("11:30"));
-			V1.setFine_viaggio(LocalTime.parse("15:20"));
-			V1.setTratta(TratteDAO.findTrattaByID(1l));
-			V1.setParco_mezzi(MezziDAO.findMezziByID(1l));
-			V1.setNome(BS1.getNome());
-			//addElement(V1);
+//			Registro_viaggi V1 = new Registro_viaggi();
+//			V1.setInit_viaggio(LocalTime.parse("11:30"));
+//			V1.setFine_viaggio(LocalTime.parse("15:20"));
+//			V1.setTratta(TratteDAO.findTrattaByID(1l));
+//			V1.setParco_mezzi(MezziDAO.findMezziByID(1l));
+//			V1.setNome(BS1.getNome());
+//			//addElement(V1);
 			
 			
 			//TitoliDAO.validaBiglietto(1l);
 			//System.out.println(TitoliDAO.findtitoloDaNegozio(1L));
 			
-			
-			
-			
 			//listaMezzi = MezziDAO.findAllMezzi();
+			
+			//creazioneTratta();
+			//creazioneMezzo();
+			//nuovoBiglietto();
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -394,5 +416,152 @@ public class Main {
 		em.getTransaction().commit();
 		System.out.println("eliminazione andata a buon fine!");
 	}
+	
+	public static void creazioneTratta() {
+		System.out.println("inizio crezione tratta");
+		Tratta TA1 = new Tratta();
+		System.out.println("Inserisci partenza");
+		String partenza = scanner.next();
+		System.out.println("Inserisci arrivo");
+		String arrivo = scanner.next();
+		TA1.setPartenza(partenza);
+		TA1.setCapolinea(arrivo);
+		TA1.setNome_tratta(partenza + "-" + arrivo);
+		addElement(TA1);
+		System.out.println("fine crezione tratta");
+		
+	}
+	
+	public static void creazioneMezzo() {
+		System.out.println("inizio crezione mazzo");
+		ParcoMezzi TM1 = new ParcoMezzi();
+		
+		System.out.println("il mezzo che stai creadondo dovrà essere assegnato ad una tratta:\n premi 1 se conosci già la tratta\npremi 2 per creare una tratta");
+		int newTratta = scanner.nextInt();
+		scanner.nextLine();
+		switch(newTratta) {
+		case 1:
+			System.out.println("elenco tratte esistenti");
+			System.out.println(TratteDAO.findAllTratte());
+		break;
+		case 2:
+			System.out.println("crea la tua nuova tratta");
+			creazioneTratta();
+		break;
+		}
+		
+		System.out.println("selezionare il tipo di mezzo\n1 tram\n2 bus");
+		int tipoMezzo = scanner.nextInt();
+		scanner.nextLine();
+		switch(tipoMezzo) {
+			case 1:
+				TM1.setTipo_mezzo(TipoMezzo.TRAM);
+				TM1.setCapienza(100);
+			break;
+			case 2:
+				TM1.setTipo_mezzo(TipoMezzo.BUS);
+				TM1.setCapienza(50);
+			break;
+		}
+		System.out.println("Inserire il nome");
+		String nome_mezzo = scanner.next();
+		TM1.setNome(nome_mezzo);
+		System.out.println("questo mezzo è in serivizio\n1 per si\\n2 per no");
+		int in_servizio = scanner.nextInt();
+		scanner.nextLine();
+		switch(in_servizio) {
+		case 1:
+			TM1.setIn_servizio(true);
+		break;
+		case 2:
+			TM1.setIn_servizio(false);
+		break;
+		}
+		
+		System.out.println("inserisci il codice della tratta seguito dalla lettera l");
+		Long codice = scanner.nextLong();
+		scanner.nextLine();
+		
+		TM1.setTratta(TratteDAO.findTrattaByID(codice));
+	}
+	
+	public static void creaNuovoTitolo() {
+        System.out.println("Cosa vuoi creare?");
+        System.out.println("1 - per biglietto");
+        System.out.println("2 - per abbonamento");
+        System.out.println("0 - per uscire");
+        int scelta = scanner.nextInt();
+        scanner.nextLine();
+        switch (scelta) {
+        case 1:
+            nuovoBiglietto();
+            break;
+        case 2:
+            //nuovoAbbonamento();
+            break;
+        default:
+            System.exit(0);
+        }
+    }
 
+
+    public static void nuovoBiglietto() {
+        System.out.println("Scegli il tuo negozio");
+        Biglietto BB1 = new Biglietto();
+        Long scelta = scanner.nextLong();
+        scanner.nextLine();
+        PuntiVendita t = negoziDAO.findNegozioByID(scelta);
+        BB1.setPunto_vendita(t);
+        System.out.println("inserisci anno");
+        int anno = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("inserisci mese");
+        int mese = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("inserisci giorno");
+        int giorno = scanner.nextInt();
+        scanner.nextLine();
+        BB1.setData_emissione(LocalDate.of(anno, mese, giorno));
+        addElement(BB1);
+        TitoliDAO.calcolaBiglietti(scelta);
+        }
+
+    public static void nuovoAbbonamento() {
+    	Abbonamento AB1 = new Abbonamento();
+    	
+    	 System.out.println("Scegli il tuo negozio");
+    	 Long scelta = scanner.nextLong();
+         scanner.nextLine();
+         PuntiVendita t = negoziDAO.findNegozioByID(scelta);
+         AB1.setPunto_vendita(t);
+         
+         System.out.println("emessione");
+         System.out.println("inserisci anno");
+         int anno = scanner.nextInt();
+         scanner.nextLine();
+         System.out.println("inserisci mese");
+         int mese = scanner.nextInt();
+         scanner.nextLine();
+         System.out.println("inserisci giorno");
+         int giorno = scanner.nextInt();
+         scanner.nextLine();
+         AB1.setData_emissione(LocalDate.of(anno, mese, giorno));
+         
+         System.out.println("Scegli codice tessera");
+    	 Long codTessera = scanner.nextLong();
+         scanner.nextLine();
+         AB1.setTessera(null);
+    }
+    
+    /*
+     Abbonamento AB1 = new Abbonamento();
+			
+			AB1.setTessera(Tess);
+			AB1.setDurata(TipoAbbonamento.MENSILE);
+			
+			AB1.setPunto_vendita(t);
+			addElement(AB1);
+			TitoliDAO.calcolaAbbonamenti(6l);	 
+     */
+	
 }
