@@ -1,6 +1,7 @@
 package tessere;
 
 import JPA_util.JpaUtil;
+import titoli.Abbonamento;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -42,6 +43,15 @@ public class TesseraDAO {
 //
 //			listaTessere = findAllTessere();
 //			listaTessere.forEach(el -> System.out.println(el));
+			
+
+			Tessera tessera = serchByid(1043L);
+            boolean isValid = isAbbonamentoValid(tessera);
+            if (isValid) {
+                System.out.println("Abbonamento valido!");
+            } else {
+                System.out.println("Abbonamento scaduto o inesistente!");
+            }
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -86,5 +96,6 @@ public class TesseraDAO {
 	    }
 	    return resultp;
 	}
+	
 
 }

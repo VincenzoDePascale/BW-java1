@@ -75,7 +75,7 @@ public class Main {
 			Biglietto BB1 = new Biglietto();
 			BB1.setData_emissione(LocalDate.of(2023, 4, 5));
 			BB1.setPunto_vendita(t);			
-			addElement(BB1);
+			//addElement(BB1);
 			TitoliDAO.calcolaBiglietti(6l);						
 			Tessera TS1 = new Tessera();
 			TS1.setData_creazione(LocalDate.of(2023, 4, 5));
@@ -94,7 +94,7 @@ public class Main {
 			AB1.setDurata(TipoAbbonamento.MENSILE);
 			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
 			AB1.setPunto_vendita(t);
-			addElement(AB1);
+			//addElement(AB1);
 			TitoliDAO.calcolaAbbonamenti(6l);	
 			
 			//registro manutenzione
@@ -111,11 +111,12 @@ public class Main {
 			V1.setTratta(TratteDAO.findTrattaByID(1l));
 			V1.setParco_mezzi(MezziDAO.findMezziByID(1l));
 			V1.setNome(BS1.getNome());
-			addElement(V1);
+			//addElement(V1);
 			
 			
 			//TitoliDAO.validaBiglietto(1l);
 			//System.out.println(TitoliDAO.findtitoloDaNegozio(1L));
+			
 			
 			
 			
