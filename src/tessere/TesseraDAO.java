@@ -53,6 +53,7 @@ public class TesseraDAO {
                 System.out.println("Abbonamento scaduto o inesistente!");
             }
 			
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -83,7 +84,7 @@ public class TesseraDAO {
 	public static Tessera serchByid(Long id) {
 		em.getTransaction().begin();
 		
-		TypedQuery<Tessera> query = em.createQuery("SELECT t FROM Tessera t WHERE t.id = :id", Tessera.class);
+		TypedQuery<Tessera> query = (TypedQuery<Tessera>) em.createQuery("SELECT t FROM Tessera t WHERE t.id = :id");
 		query.setParameter("id", id);
 		Tessera resultp = query.getSingleResult();
 		
