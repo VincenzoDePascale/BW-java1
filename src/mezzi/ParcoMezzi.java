@@ -44,11 +44,6 @@ public class ParcoMezzi {
 	@Column(nullable = false)
 	private Boolean in_manutenzione;
 	
-	/*@Column
-	private LocalDate inizio_manutenzione;
-	@Column
-	private LocalDate fine_manutenzione;*/
-	
 	@OneToMany(mappedBy = "parco_mezzi")
 	private List<Registro_manutenzione> registro_manutenzione;
 	
