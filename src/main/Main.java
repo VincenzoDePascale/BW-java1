@@ -25,13 +25,13 @@ public class Main {
 	public static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		List<ParcoMezzi> listaMezzi; /*TM-BS*/
-		List<PuntiVendita> listaPuntivendita; /*RV-DB*/
-		//lst registri
-		List<Tessera> listaTessere; /*TS*/
-		List<Titolo> listaTitoli; /*AB - BB*/
-		List<Tratta> listTratte; /*TA*/
-		List<Utente> listaUtente; /*UT*/
+//		List<ParcoMezzi> listaMezzi; /*TM-BS*/
+//		List<PuntiVendita> listaPuntivendita; /*RV-DB*/
+//		//lst registri
+//		List<Tessera> listaTessere; /*TS*/
+//		List<Titolo> listaTitoli; /*AB - BB*/
+//		List<Tratta> listTratte; /*TA*/
+//		List<Utente> listaUtente; /*UT*/
 				
 		try {
 			
