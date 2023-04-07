@@ -23,6 +23,7 @@ import tratte.Tratta;
 @Entity
 @Table(name = "parco_mezzi")
 @NamedQuery(name="parco_mezzi.findAll", query = "SELECT p FROM ParcoMezzi p")
+@NamedQuery(name="findMezziById", query = "SELECT p FROM ParcoMezzi p WHERE p.id = :id")
 public class ParcoMezzi {
 	
 	@Id

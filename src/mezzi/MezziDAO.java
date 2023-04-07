@@ -132,6 +132,12 @@ public class MezziDAO {
 		System.out.println("Mezzo eliminato");
 	}
 	
+	public static ParcoMezzi findMezziByID(Long id) {
+		Query q = em.createNamedQuery("findMezziById");
+		q.setParameter("id", id);
+		return (ParcoMezzi) q.getSingleResult();
+	}
+	
 	
 	public static List<ParcoMezzi> findAllMezzi() {
 		Query q = em.createNamedQuery("parco_mezzi.findAll");

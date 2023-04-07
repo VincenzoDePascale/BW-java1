@@ -2,6 +2,7 @@ package registri;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -34,40 +35,41 @@ public class RegistriDAO {
 	
 	public static void estraiTempo (Long id) {
         em.getTransaction().begin();		
-		TypedQuery<LocalTime> query1 = (TypedQuery<LocalTime>) em.createQuery("SELECT init_viaggio FROM Registro_viaggi t WHERE t.id = :id");
+		TypedQuery<LocalTime> query1 = (TypedQuery<LocalTime>) em.createQuery("SELECT init_viaggio FROM Registro_viaggi t WHERE id_tratta = :id");
 		query1.setParameter("id", id);
-		LocalTime partenza = query1.getSingleResult();
-		TypedQuery<LocalTime> query2 = (TypedQuery<LocalTime>) em.createQuery("SELECT fine_viaggio FROM Registro_viaggi t WHERE t.id = :id");
+		List<LocalTime> partenza = query1.getResultList();
+		TypedQuery<LocalTime> query2 = (TypedQuery<LocalTime>) em.createQuery("SELECT fine_viaggio FROM Registro_viaggi t WHERE id_tratta = :id");
 		query2.setParameter("id", id);
-		LocalTime arrivo = query2.getSingleResult();
-		em.getTransaction().commit();
-		calcoloTempo(id, partenza, arrivo);
-			
+		List<LocalTime> arrivo = query2.getResultList();
+		em.getTransaction().commit();		
+		calcoloTempo(id, partenza, arrivo);			
 	}
 	
-	public static long calcoloTempo(Long id, LocalTime inizio, LocalTime fine) {
+	public static long calcoloTempo(Long id, List<LocalTime> partenza, List<LocalTime> arrivo) {
 		 long result = 0;
-		 Duration duration = Duration.between(inizio, fine);
+		 Long totTempo = 0l;
+		 partenza.parallelStream();
+		 arrivo.parallelStream();
+		 Iterator<LocalTime> start = partenza.iterator();
+   		 Iterator<LocalTime> end = arrivo.iterator();
+   		 for(int i = 0; i< arrivo.size(); i++) {
+		 Duration duration = Duration.between(start.next(), end.next());
 		 result = duration.toMinutes();
-		System.out.println(result);
-		caricaTempoMedio(id, result);
-		return result;
+		 totTempo = totTempo + result;
+   		 }
+   		 Long tempoMedio = totTempo / arrivo.size();	
+   		 caricaTempoMedio(id, tempoMedio);
+
+		return tempoMedio;
 	}
 	
 	public static void caricaTempoMedio(long id,long tempo) {	
-		List<Long> totTempo = null;
-		totTempo.add(tempo);
 		Tratta t = TratteDAO.findTrattaByID(id);
-		
-		long results = totTempo
-		.stream()
-		.reduce((long) 0, (subtotal, x)-> subtotal + x);
-		t.setDurata_media(results);
+		t.setDurata_media(tempo);
 	    em.getTransaction().begin();
 	    em.merge(t);
 		em.getTransaction().commit();
 	}
 	
-	////reduce da provare
 
 }

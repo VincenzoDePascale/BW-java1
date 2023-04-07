@@ -40,7 +40,7 @@ public class Main {
 			TA1.setNome_tratta("Na-Sa");
 			TA1.setPartenza("Napoli");
 			TA1.setCapolinea("Salerno");
-			addElement(TA1);
+			//addElement(TA1);
 			
 			//creazione mezzi
 			ParcoMezzi TM1 = new ParcoMezzi();
@@ -49,7 +49,7 @@ public class Main {
 			TM1.setIn_servizio(true);
 			TM1.setCapienza(100);
 			TM1.setTratta(TA1);
-			addElement(TM1);
+			//addElement(TM1);
 			
 			ParcoMezzi BS1 = new ParcoMezzi();
 			BS1.setTipo_mezzo(TipoMezzo.BUS);
@@ -57,34 +57,34 @@ public class Main {
 			BS1.setIn_servizio(true);
 			BS1.setCapienza(100);
 			BS1.setTratta(TA1);
-			addElement(BS1);
+			//addElement(BS1);
 			
 			//negoziDAO
 			Distributore DB1 = new Distributore();
 			DB1.setNome("Da Erminio Ottone il bigliettaio");
 			DB1.setAttivo(true);
-			addElement(DB1);
+			//addElement(DB1);
 			
 			Rivenditore RV1 = new Rivenditore();
 			RV1.setNome("Rivendi Tore");
 			RV1.setApertura(LocalTime.parse("09:30"));
 			RV1.setChiusura(LocalTime.parse("18:30"));
-			addElement(RV1);
+			//addElement(RV1);
 			
 			Biglietto BB1 = new Biglietto();
 			BB1.setData_emissione(LocalDate.of(2023, 4, 5));
 			BB1.setPunto_vendita(DB1);
-			addElement(BB1);
+			//addElement(BB1);
 						
 			Tessera TS1 = new Tessera();
 			TS1.setData_creazione(LocalDate.of(2023, 4, 5));
-			addElement(TS1);
+			//addElement(TS1);
 
 			Utente UT1 = new Utente();
 			UT1.setNome("Vincenzo");
 			UT1.setCognome("De Saverio");
 			UT1.setTessera(TS1);
-			addElement(UT1);
+			//addElement(UT1);
 			
 			Abbonamento AB1 = new Abbonamento();
 			AB1.setData_emissione(LocalDate.of(2024, 4, 5));
@@ -92,7 +92,7 @@ public class Main {
 			AB1.setDurata(TipoAbbonamento.MENSILE);
 			AB1.setData_inizio(LocalDate.of(2024, 5, 1), AB1.getDurata());
 			AB1.setPunto_vendita(DB1);
-			addElement(AB1);
+			//addElement(AB1);
 			
 			//registro manutenzione
 			Registro_manutenzione RM1 = new Registro_manutenzione();
@@ -100,14 +100,14 @@ public class Main {
 			RM1.setFine_manutenzione(LocalDate.of(2023, 3, 5));
 			RM1.setParco_mezzi(BS1);
 			RM1.setNome(BS1.getNome());
-			addElement(RM1);
+			//addElement(RM1);
 			
 			Registro_viaggi V1 = new Registro_viaggi();
 			V1.setInit_viaggio(LocalTime.parse("11:30"));
-			V1.setFine_viaggio(LocalTime.parse("13:20"));
-			V1.setTratta(TA1);
-			V1.setParco_mezzi(TM1);
-			V1.setNome(TM1.getNome());
+			V1.setFine_viaggio(LocalTime.parse("15:20"));
+			V1.setTratta(TratteDAO.findTrattaByID(1l));
+			V1.setParco_mezzi(MezziDAO.findMezziByID(1l));
+			V1.setNome(BS1.getNome());
 			addElement(V1);
 			
 			
