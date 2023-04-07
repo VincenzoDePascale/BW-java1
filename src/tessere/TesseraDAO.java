@@ -40,18 +40,19 @@ public class TesseraDAO {
 //			Tessera T5 = new Tessera();
 //			T5.setData_creazione(LocalDate.of(2022, 7, 12));
 //			addTessera(T5);
-//
+
 //			listaTessere = findAllTessere();
 //			listaTessere.forEach(el -> System.out.println(el));
 			
 
-//	
-//            boolean isValid = isAbbonamentoValid(serchByid(1042l));
-//            if (isValid) {
-//                System.out.println("Abbonamento valido!");
-//            } else {
-//                System.out.println("Abbonamento scaduto o inesistente!");
-//            }
+			Tessera tessera = serchByid(1001l);
+            boolean isValid = isAbbonamentoValid(tessera);
+            if (isValid) {
+                System.out.println("Abbonamento valido!");
+            } else {
+                System.out.println("Abbonamento scaduto o inesistente!");
+            }
+			
 
 		}catch(Exception e){
 			e.printStackTrace();
@@ -97,5 +98,25 @@ public class TesseraDAO {
 	    return resultp;
 	}
 	
+	public static boolean isAbbonamentoValid(Tessera tessera) {
+        boolean isValid = false;
 
+        try {
+            TypedQuery<Abbonamento> abbonamentoQuery = em.createQuery("SELECT a FROM Abbonamento a WHERE a.tessera = :tessera", Abbonamento.class);
+            abbonamentoQuery.setParameter("tessera", tessera);
+            List<Abbonamento> abbonamenti = abbonamentoQuery.getResultList();
+            if (!abbonamenti.isEmpty()) {
+                Abbonamento abbonamento = abbonamenti.get(0);
+                LocalDate dataScadenza = abbonamento.getData_scadenza();
+                LocalDate now = LocalDate.now();
+                isValid = now.isBefore(dataScadenza);
+            }
+
+        } finally {
+            em.close();
+        }
+
+        return isValid;
+    }
+	
 }
