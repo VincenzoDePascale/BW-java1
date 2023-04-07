@@ -40,36 +40,287 @@ public class Main {
 			TA1.setNome_tratta("Na-Sa");
 			TA1.setPartenza("Napoli");
 			TA1.setCapolinea("Salerno");
-			//addElement(TA1);
+						
+			Tratta TA2 = new Tratta();
+			TA2.setNome_tratta("Sa-Na");
+			TA2.setPartenza("Salerno");
+			TA2.setCapolinea("Napoli");
+						
+			Tratta TA3 = new Tratta();
+			TA3.setNome_tratta("Ro-Na");
+			TA3.setPartenza("Roma");
+			TA3.setCapolinea("Napoli");
+						
+			Tratta TA4 = new Tratta();
+			TA4.setNome_tratta("Na-Ro");
+			TA4.setPartenza("Napoli");
+			TA4.setCapolinea("Roma");
 			
+			Tratta TA5 = new Tratta();
+            TA5.setNome_tratta("Pa-Me");
+            TA5.setPartenza("Palermo");
+            TA5.setCapolinea("Messina");
+            
+            Tratta TA6 = new Tratta();
+            TA6.setNome_tratta("Me-Pa");
+            TA6.setPartenza("Messina");
+            TA6.setCapolinea("Palermo");
+            
+            Tratta TA7 = new Tratta();
+            TA7.setNome_tratta("Ca-Me");
+            TA7.setPartenza("Catania");
+            TA7.setCapolinea("Messina");
+            
+            Tratta TA8 = new Tratta();
+            TA8.setNome_tratta("Me-Ca");
+            TA8.setPartenza("Messina");
+            TA8.setCapolinea("Catania");
+            
+            Tratta TA9 = new Tratta();
+            TA9.setNome_tratta("Ca-Pa");
+            TA9.setPartenza("Catania");
+            TA9.setCapolinea("Palermo");
+            
+            Tratta TA10 = new Tratta();
+            TA10.setNome_tratta("Pa-Ca");
+            TA10.setPartenza("Palermo");
+            TA10.setCapolinea("Catania");
+            
+            //add tratte
+//          addElement(TA1);
+//          addElement(TA2);
+//			addElement(TA3);
+//			addElement(TA4);
+//			addElement(TA5);
+//          addElement(TA6);
+//          addElement(TA7);
+//          addElement(TA8);
+//          addElement(TA9);
+//          addElement(TA10);
+								
 			//creazione mezzi
 			ParcoMezzi TM1 = new ParcoMezzi();
 			TM1.setTipo_mezzo(TipoMezzo.TRAM);
-			TM1.setNome("Tram3");
+			TM1.setNome("Tram1");
 			TM1.setIn_servizio(true);
 			TM1.setCapienza(100);
 			TM1.setTratta(TA1);
-			//addElement(TM1);
-			
+						
 			ParcoMezzi BS1 = new ParcoMezzi();
 			BS1.setTipo_mezzo(TipoMezzo.BUS);
-			BS1.setNome("Bus2");
+			BS1.setNome("Bus1");
 			BS1.setIn_servizio(true);
-			BS1.setCapienza(100);
+			BS1.setCapienza(50);
 			BS1.setTratta(TA1);
-			//addElement(BS1);
 			
-			//negoziDAO
+			ParcoMezzi TM2 = new ParcoMezzi();
+			TM2.setTipo_mezzo(TipoMezzo.TRAM);
+			TM2.setNome("Tram2");
+			TM2.setIn_servizio(true);
+			TM2.setCapienza(100);
+			TM2.setTratta(TA2);
+						
+			ParcoMezzi BS2 = new ParcoMezzi();
+			BS2.setTipo_mezzo(TipoMezzo.BUS);
+			BS2.setNome("Bus2");
+			BS2.setIn_servizio(true);
+			BS2.setCapienza(50);
+			BS2.setTratta(TA2);
+						
+			ParcoMezzi TM3 = new ParcoMezzi();
+			TM3.setTipo_mezzo(TipoMezzo.TRAM);
+			TM3.setNome("Tram3");
+			TM3.setIn_servizio(true);
+			TM3.setCapienza(100);
+			TM3.setTratta(TA3);
+						
+			ParcoMezzi BS3 = new ParcoMezzi();
+			BS3.setTipo_mezzo(TipoMezzo.BUS);
+			BS3.setNome("Bus3");
+			BS3.setIn_servizio(true);
+			BS3.setCapienza(50);
+			BS3.setTratta(TA3);
+						
+			ParcoMezzi TM4 = new ParcoMezzi();
+			TM4.setTipo_mezzo(TipoMezzo.TRAM);
+			TM4.setNome("Tram4");
+			TM4.setIn_servizio(true);
+			TM4.setCapienza(100);
+			TM4.setTratta(TA4);
+						
+			ParcoMezzi BS4 = new ParcoMezzi();
+			BS4.setTipo_mezzo(TipoMezzo.BUS);
+			BS4.setNome("Bus4");
+			BS4.setIn_servizio(true);
+			BS4.setCapienza(50);
+			BS4.setTratta(TA4);
+						
+			ParcoMezzi TM5 = new ParcoMezzi();
+			TM5.setTipo_mezzo(TipoMezzo.TRAM);
+			TM5.setNome("Tram5");
+			TM5.setIn_servizio(true);
+			TM5.setCapienza(100);
+			TM5.setTratta(TA5);
+						
+			ParcoMezzi BS5 = new ParcoMezzi();
+			BS5.setTipo_mezzo(TipoMezzo.BUS);
+			BS5.setNome("Bus5");
+			BS5.setIn_servizio(true);
+			BS5.setCapienza(50);
+			BS5.setTratta(TA5);
+					
+			ParcoMezzi TM6 = new ParcoMezzi();
+			TM6.setTipo_mezzo(TipoMezzo.TRAM);
+			TM6.setNome("Tram6");
+			TM6.setIn_servizio(true);
+			TM6.setCapienza(100);
+			TM6.setTratta(TA6);
+						
+			ParcoMezzi BS6 = new ParcoMezzi();
+			BS6.setTipo_mezzo(TipoMezzo.BUS);
+			BS6.setNome("Bus6");
+			BS6.setIn_servizio(true);
+			BS6.setCapienza(50);
+			BS6.setTratta(TA6);
+						
+			ParcoMezzi TM7 = new ParcoMezzi();
+			TM7.setTipo_mezzo(TipoMezzo.TRAM);
+			TM7.setNome("Tram7");
+			TM7.setIn_servizio(true);
+			TM7.setCapienza(100);
+			TM7.setTratta(TA7);
+						
+			ParcoMezzi BS7 = new ParcoMezzi();
+			BS7.setTipo_mezzo(TipoMezzo.BUS);
+			BS7.setNome("Bus7");
+			BS7.setIn_servizio(true);
+			BS7.setCapienza(50);
+			BS7.setTratta(TA7);
+						
+			ParcoMezzi TM8 = new ParcoMezzi();
+			TM8.setTipo_mezzo(TipoMezzo.TRAM);
+			TM8.setNome("Tram8");
+			TM8.setIn_servizio(true);
+			TM8.setCapienza(100);
+			TM8.setTratta(TA8);
+						
+			ParcoMezzi BS8 = new ParcoMezzi();
+			BS8.setTipo_mezzo(TipoMezzo.BUS);
+			BS8.setNome("Bus8");
+			BS8.setIn_servizio(true);
+			BS8.setCapienza(50);
+			BS8.setTratta(TA8);
+			
+			ParcoMezzi TM9 = new ParcoMezzi();
+			TM9.setTipo_mezzo(TipoMezzo.TRAM);
+			TM9.setNome("Tram9");
+			TM9.setIn_servizio(true);
+			TM9.setCapienza(100);
+			TM9.setTratta(TA9);
+						
+			ParcoMezzi BS9 = new ParcoMezzi();
+			BS9.setTipo_mezzo(TipoMezzo.BUS);
+			BS9.setNome("Bus9");
+			BS9.setIn_servizio(true);
+			BS9.setCapienza(50);
+			BS9.setTratta(TA9);
+						
+			ParcoMezzi TM10 = new ParcoMezzi();
+			TM10.setTipo_mezzo(TipoMezzo.TRAM);
+			TM10.setNome("Tram10");
+			TM10.setIn_servizio(true);
+			TM10.setCapienza(100);
+			TM10.setTratta(TA10);
+						
+			ParcoMezzi BS10 = new ParcoMezzi();
+			BS10.setTipo_mezzo(TipoMezzo.BUS);
+			BS10.setNome("Bus10");
+			BS10.setIn_servizio(true);
+			BS10.setCapienza(50);
+			BS10.setTratta(TA10);
+			
+			//add bus e tram
+//			addElement(TM1);
+//			addElement(BS1);
+//			addElement(TM2);
+//			addElement(BS2);
+//			addElement(TM3);
+//			addElement(BS3);
+//			addElement(TM4);
+//			addElement(BS4);
+//			addElement(TM5);
+//			addElement(BS5);
+//			addElement(TM6);
+//			addElement(BS6);
+//			addElement(TM7);
+//			addElement(BS7);
+//			addElement(TM8);
+//			addElement(BS8);
+//			addElement(TM9);
+//			addElement(BS9);
+//			addElement(TM10);
+//			addElement(BS10);
+			
+			//distributori
 			Distributore DB1 = new Distributore();
-			DB1.setNome("Da Erminio Ottone il bigliettaio");
+			DB1.setNome("distributore1");
 			DB1.setAttivo(true);
-			//addElement(DB1);
 			
+			Distributore DB2 = new Distributore();
+			DB2.setNome("distributore2");
+			DB2.setAttivo(true);
+			
+			Distributore DB3 = new Distributore();
+			DB3.setNome("distributore3");
+			DB3.setAttivo(true);
+			
+			Distributore DB4 = new Distributore();
+			DB4.setNome("distributore4");
+			DB4.setAttivo(true);
+			
+			Distributore DB5 = new Distributore();
+			DB5.setNome("distributore5");
+			DB5.setAttivo(true);
+			
+			//add distributori
+//			addElement(DB1);
+//			addElement(DB2);
+//			addElement(DB3);
+//			addElement(DB4);
+//			addElement(DB5);
+			
+			//rivenditori
 			Rivenditore RV1 = new Rivenditore();
-			RV1.setNome("Rivendi Tore");
-			RV1.setApertura(LocalTime.parse("09:30"));
-			RV1.setChiusura(LocalTime.parse("18:30"));
-			//addElement(RV1);
+			RV1.setNome("Rivenditore1");
+			RV1.setApertura(LocalTime.parse("07:30"));
+			RV1.setChiusura(LocalTime.parse("20:00"));
+			
+			Rivenditore RV2 = new Rivenditore();
+			RV2.setNome("Rivenditore2");
+			RV2.setApertura(LocalTime.parse("07:30"));
+			RV2.setChiusura(LocalTime.parse("14:30"));
+			
+			Rivenditore RV3 = new Rivenditore();
+			RV3.setNome("Rivenditore3");
+			RV3.setApertura(LocalTime.parse("14:30"));
+			RV3.setChiusura(LocalTime.parse("20:00"));
+			
+			Rivenditore RV4 = new Rivenditore();
+			RV4.setNome("Rivenditore4");
+			RV4.setApertura(LocalTime.parse("07:30"));
+			RV4.setChiusura(LocalTime.parse("14:30"));
+			
+			Rivenditore RV5 = new Rivenditore();
+			RV5.setNome("Rivenditore5");
+			RV5.setApertura(LocalTime.parse("14:30"));
+			RV5.setChiusura(LocalTime.parse("20:00"));
+			
+			//add rivenditori
+//			addElement(RV1);
+//			addElement(RV2);
+//			addElement(RV3);
+//			addElement(RV4);
+//			addElement(RV5);
 			
 			PuntiVendita t = negoziDAO.findNegozioByID(1l);
 			Biglietto BB1 = new Biglietto();
