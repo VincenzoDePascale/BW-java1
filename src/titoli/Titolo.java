@@ -24,7 +24,7 @@ import negozi.PuntiVendita;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name= "tipologia_biglietto", discriminatorType = DiscriminatorType.STRING)
 @NamedQuery(name="titoli.findAll", query = "SELECT t FROM Titolo t")
-//@NamedQuery(name = "FindTitoliDaNegozio", query = "SELECT COUNT (*) FROM Titolo t WHERE t.punto_vendita = :id")
+@NamedQuery(name = "FindTitoliDaNegozio", query = "SELECT n FROM Titolo n WHERE punto_vendita = :id")
 public abstract class Titolo {
 	
 	@Id

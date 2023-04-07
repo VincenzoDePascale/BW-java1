@@ -1,8 +1,13 @@
 package titoli;
 
+import java.time.LocalTime;
 import java.util.List;
 import javax.persistence.*;
 import JPA_util.JpaUtil;
+import negozi.PuntiVendita;
+import negozi.negoziDAO;
+import tratte.Tratta;
+import tratte.TratteDAO;
 
 public class TitoliDAO {
 	
@@ -71,6 +76,9 @@ public class TitoliDAO {
 //           Titolo letto = serchByNum(2l);
 //          listaTitoli =  findAllTitoli();
 //          listaTitoli.forEach(el -> System.out.println(el));
+			
+			calcolaBiglietti(5l);
+			calcolaAbbonamenti(5l);
             
 		}catch(Exception e){
 			e.printStackTrace();
@@ -130,5 +138,40 @@ public class TitoliDAO {
 		q.setParameter("id", id);
 		return q.getResultList();
 	}*/
+	
+	public static void calcolaBiglietti (Long id) {
+        em.getTransaction().begin();		
+		TypedQuery<Long> query = (TypedQuery<Long>) em.createQuery("SELECT COUNT(*) FROM Titolo t WHERE id_puntivendita = :id AND tipologia_biglietto LIKE 'Biglietto'");
+		query.setParameter("id", id);
+        Long totBiglietti = query.getSingleResult();
+        em.getTransaction().commit();
+		System.out.println(totBiglietti);
+		caricaTotBiglietti(id, totBiglietti);
+	}
+	
+	public static void caricaTotBiglietti(long id,long n) {	
+		PuntiVendita t = negoziDAO.findNegozioByID(id);
+		t.setBiglietti_emessi(n);
+	    em.getTransaction().begin();
+	    em.merge(t);
+		em.getTransaction().commit();
+	}
+	public static void calcolaAbbonamenti (Long id) {
+        em.getTransaction().begin();		
+		TypedQuery<Long> query = (TypedQuery<Long>) em.createQuery("SELECT COUNT(*) FROM Titolo t WHERE id_puntivendita = :id AND tipologia_biglietto LIKE 'Abbonamento'");
+		query.setParameter("id", id);
+        Long totBiglietti = query.getSingleResult();
+        em.getTransaction().commit();
+		System.out.println(totBiglietti);
+		caricaTotAbbonamenti(id, totBiglietti);
+	}
+	
+	public static void caricaTotAbbonamenti(long id,long n) {	
+		PuntiVendita t = negoziDAO.findNegozioByID(id);
+		t.setAbbonamenti_emessi(n);
+	    em.getTransaction().begin();
+	    em.merge(t);
+		em.getTransaction().commit();
+	}
 	
 }

@@ -15,6 +15,7 @@ import titoli.Biglietto;
 import titoli.TipoAbbonamento;
 import titoli.TitoliDAO;
 import titoli.Titolo;
+import tratte.Tratta;
 import utenti.Utente;
 import utenti.UtentiDAO;
 
@@ -81,6 +82,11 @@ public class negoziDAO {
 		em.remove(e);
 		em.getTransaction().commit();
 		System.out.println("Punto vendita eliminato!");
+	}
+	public static PuntiVendita findNegozioByID(Long id) {
+		Query q = em.createNamedQuery("findNegozioById");
+		q.setParameter("id", id);
+		return (PuntiVendita) q.getSingleResult();
 	}
 	
 	
