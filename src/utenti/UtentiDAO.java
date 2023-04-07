@@ -41,14 +41,14 @@ public class UtentiDAO {
 //						
 //			listaUtenti = findAllUtenti();
 			
-			Utente utente = findUtenteById(2L);
 
-			if (isTesseraValid(utente)) {
+			if (isTesseraOfUtenteValid(findUtenteById(2L))) {
 			    System.out.println("tessera is valid");
 			} else {
 			    System.out.println("tessera is not valid");
 			}
 			
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally {
@@ -81,9 +81,16 @@ public class UtentiDAO {
 		em.getTransaction().commit();
 		System.out.println("utente eliminato!");
 	}
+	
+	public static Utente findUtenteByTessera(Long numero) {
+		Query q = em.createNamedQuery("utenti.findTessera");
+		q.setParameter("tessera", numero);
+		return (Utente) q.getSingleResult();
+
+		}
 
 	
-	public static boolean isTesseraValid(Utente utente) {
+	public static boolean isTesseraOfUtenteValid(Utente utente) {
 	    Tessera tessera = utente.getTessera();
 	    LocalDate dataScadenza = tessera.getData_scadenza();
 	    LocalDate now = LocalDate.now();
